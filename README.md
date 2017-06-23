@@ -2,7 +2,8 @@
 
 ## rpackage 
 包含了对go基础库的扩展，例如osextend，stringextend等扩展
-在osextend中你可以使用以下接口
+
+### 在osextend中你可以使用以下接口
 
 ```
 GetFiles 获取指定目录下指定类型的文件列表
