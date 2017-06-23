@@ -83,5 +83,4 @@ func Readline(fileName string) (ret []string, err error) {
 			return ret, err
 		}
 	}
-	return ret, nil
 }
