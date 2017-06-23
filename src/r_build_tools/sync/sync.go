@@ -4,13 +4,16 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"path"
 	"path/filepath"
 	"rpackage"
 	"strings"
 )
 
-func syncMap(mapStrings []string) (retMap map[string]string) {
+var (
+	syncRootDir string
+)
+
+func parseSyncFileList2Map(mapStrings []string) (retMap map[string]string) {
 
 	retmap := make(map[string]string)
 	for _, str := range mapStrings {
@@ -32,73 +35,117 @@ func syncMap(mapStrings []string) (retMap map[string]string) {
 	return retmap
 }
 
-func createSyncFile(srcHeadFileName string, destHeadFileName string) {
+func copyFile2Include(filesMap map[string]string) {
+	for fileFullName, targetFileName := range filesMap {
+		os.Chdir(syncRootDir)
 
+		relFilePath := strings.TrimPrefix(fileFullName, syncRootDir)
+		destFileName := rpackage.Separator + "include" + relFilePath
+		targetFileFullName := syncRootDir + rpackage.Separator + "include" + rpackage.Separator + targetFileName
+		tmpStrList := strings.Split(destFileName, rpackage.Separator)
+
+		fmt.Println("**********************************")
+		fmt.Println("fileFullName:", fileFullName)
+		fmt.Println("syncRootDir:", syncRootDir)
+		fmt.Println("relfilePath:", relFilePath)
+		fmt.Println("destFileName:", destFileName)
+		fmt.Println("targetFileFullName:", targetFileFullName)
+		fmt.Println("tmpStrList:", tmpStrList)
+
+		if len(tmpStrList) > 1 {
+			for _, subDir := range tmpStrList {
+				if subDir != tmpStrList[len(tmpStrList)-1] &&
+					subDir != "" {
+					curPath, _ := os.Getwd()
+					ok, _ := rpackage.PathExists(curPath + rpackage.Separator + subDir)
+					if !ok {
+						os.Mkdir(subDir, os.ModeDir)
+						fmt.Println("mkdir: ", subDir)
+					}
+					os.Chdir(subDir)
+				} else {
+
+				}
+			}
+		}
+
+		rpackage.CopyFile(fileFullName, syncRootDir+destFileName)
+		fmt.Println(fileFullName, " ====>>>> ", syncRootDir+destFileName)
+		desFile, err := os.Create(targetFileFullName)
+		if err != nil {
+		}
+
+		fmt.Println(fileFullName, " ====>>>> ", syncRootDir+destFileName)
+		relFilePath = strings.TrimPrefix(relFilePath, rpackage.Separator)
+		fmt.Println(" relFilePath after TrimPrefix is : ", relFilePath)
+		relFilePath = strings.Replace(relFilePath, rpackage.Separator, "/", -1)
+		desFile.WriteString("#include " + "\"" + relFilePath + "\"")
+		defer desFile.Close()
+		fmt.Println("**********************************")
+		continue
+	}
 }
-func scanDir(scanPath string) {
+func getSyncFileList(curDir string) (filesMap map[string]string, err error) {
+
+	filesMap = make(map[string]string)
 
 	//解析要同步的头文件列表
-	syncFileList, errRead := rpackage.Readline("sync.profile")
-	if errRead != nil {
-		return
-	}
-
-	retmap := syncMap(syncFileList)
-	for k := range retmap {
-		fmt.Println("head file is", k, " map to ", retmap[k])
-	}
-
-	err := filepath.Walk(scanPath, func(scanPath string, f os.FileInfo, err error) error {
-		if f == nil {
-			return err
-		}
-
-		if f.IsDir() {
-			fmt.Println(" subdir is : " + f.Name())
-			if f.Name() != "inclue" &&
-				f.Name() != scanPath {
-				os.Mkdir("include"+"//"+f.Name(), os.ModeDir)
-			}
-			return nil
-		}
-
-		var filenameWithSuffix string
-
-		filenameWithSuffix = path.Base(f.Name()) //获取文件名带后缀
-
-		var fileSuffix string
-		fileSuffix = path.Ext(filenameWithSuffix) //获取文件后缀
-
-		fmt.Println("filenameWithSuffix is ", filenameWithSuffix, " fileSuffix is ", fileSuffix)
-
-		if fileSuffix == ".h" {
-			var ok bool
-			_, ok = retmap[filenameWithSuffix]
-
-			if ok {
-				rpackage.CopyFile(filenameWithSuffix, "include"+"//"+filenameWithSuffix)
-				desFile, err := os.Create("include" + "//" + retmap[filenameWithSuffix])
-				if err != nil {
-				}
-				desFile.WriteString("#include " + "\"" + filenameWithSuffix + "\"")
-				defer desFile.Close()
-				//os.OpenFile(retmap[filenameWithSuffix])
-			}
-		}
-		return nil
-	})
+	syncFileList, err := rpackage.Readline("sync.profile")
 	if err != nil {
-		fmt.Printf("filepath.Walk() returned %v\n", err)
+		return filesMap, err
 	}
+
+	//	获取当前目录下的所有.h文件
+	files, err := rpackage.GetFiles(curDir, ".h")
+	syncFileMaps := parseSyncFileList2Map(syncFileList)
+
+	for _, fileFullName := range files {
+		fileBaseName := strings.TrimPrefix(fileFullName, curDir+rpackage.Separator)
+		fileBaseName = strings.Replace(fileBaseName, "\\", "/", -1)
+		fmt.Println("--------------", fileBaseName)
+		fileMapName, ok := syncFileMaps[fileBaseName]
+		if ok {
+			filesMap[fileFullName] = fileMapName
+		}
+	}
+
+	return filesMap, err
+}
+
+func sync(curDir string) {
+	includePath := curDir + rpackage.Separator + "include"
+
+	//删除原来的include目录
+	ok, _ := rpackage.PathExists(includePath)
+	if ok {
+		os.RemoveAll(includePath)
+	}
+
+	syncFileMaps, _ := getSyncFileList(curDir)
+	for fileFullName, fileMap2BaseName := range syncFileMaps {
+		fmt.Println(fileFullName, "=>", fileMap2BaseName)
+	}
+
+	copyFile2Include(syncFileMaps)
+}
+
+func parseArgs(args []string) string {
+	var scanPath string
+	if args == nil || len(args) < 2 {
+		scanPath, _ = os.Getwd()
+	} else {
+		scanPath = args[1]
+		scanPath, _ = filepath.Abs(scanPath)
+	}
+	return scanPath
 }
 
 func main() {
 	flag.Parse()
+	args := os.Args //获取用户输入的所有参数
+	syncRootDir = parseArgs(args)
 
-	curDir, _ := os.Getwd()
-	os.Chdir(curDir)
-	fmt.Println(curDir)
-	os.RemoveAll("include")
-	os.Mkdir("include", os.ModeDir)
-	scanDir(curDir)
+	syncRootDir, _ = os.Getwd()
+	fmt.Println(syncRootDir)
+	sync(syncRootDir)
 }

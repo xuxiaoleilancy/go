@@ -14,19 +14,6 @@ const (
 	ListSeparator = string(os.PathListSeparator) // 路径列表分隔符（分隔多个路径）
 )
 
-func substr(s string, pos, length int) string {
-	runes := []rune(s)
-	l := pos + length
-	if l > len(runes) {
-		l = len(runes)
-	}
-	return string(runes[pos:l])
-}
-
-func GetParentDirectory(dirctory string) string {
-	return substr(dirctory, 0, strings.LastIndex(dirctory, "/"))
-}
-
 //目录是否存在
 func PathExists(path string) (bool, error) {
 	_, err := os.Stat(path)
@@ -57,29 +44,6 @@ func CopyFile(src, des string) (w int64, err error) {
 }
 
 func GetFiles(dirPath, suffix string) (files []string, err error) {
-	files = make([]string, 0, 30)
-	suffix = strings.ToUpper(suffix)
-
-	err = filepath.Walk(dirPath, func(filename string, fi os.FileInfo, err error) error {
-		if err != nil {
-			return err
-		}
-
-		if fi.IsDir() {
-			return nil
-		}
-
-		if strings.HasSuffix(strings.ToUpper(fi.Name()), suffix) {
-			files = append(files, filename)
-		}
-
-		return nil
-	})
-
-	return files, err
-}
-
-func WalkDir(dirPath, suffix string) (files []string, err error) {
 	files = make([]string, 0, 30)
 	suffix = strings.ToUpper(suffix)
 

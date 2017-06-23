@@ -12,11 +12,22 @@ import (
 func main() {
 	fmt.Println("Hello World!")
 
+	mySlice1 := make([]int, 0)
+	mySlice1 = append(mySlice1, 0)
+	mySlice1 = append(mySlice1, 1)
+	mySlice1 = append(mySlice1, 2)
+	mySlice1 = append(mySlice1, 3)
+	mySlice1 = append(mySlice1, 4)
+	mySlice1 = append(mySlice1, 5)
+
+	fmt.Println("len:", len(mySlice1), "  ", mySlice1)
+	return
+
 	curDir, _ := os.Getwd()
 
 	os.RemoveAll("include")
 	//	return
-	files, err := rpackage.WalkDir(curDir, ".h")
+	files, err := rpackage.GetFiles(curDir, ".h")
 
 	fmt.Println(files, err)
 
@@ -54,5 +65,4 @@ func main() {
 		desFile.WriteString("#include " + "\"" + relPath + "\"")
 		defer desFile.Close()
 	}
-
 }
