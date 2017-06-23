@@ -90,7 +90,7 @@ func getSyncFileList(curDir string) (filesMap map[string]string, err error) {
 	filesMap = make(map[string]string)
 
 	//解析要同步的头文件列表
-	syncFileList, err := rpackage.Readline("sync.profile")
+	syncFileList, err := rpackage.Readline(syncRootDir + rpackage.Separator + "sync.profile")
 	if err != nil {
 		return filesMap, err
 	}
@@ -98,6 +98,11 @@ func getSyncFileList(curDir string) (filesMap map[string]string, err error) {
 	//	获取当前目录下的所有.h文件
 	files, err := rpackage.GetFiles(curDir, ".h")
 	syncFileMaps := parseSyncFileList2Map(syncFileList)
+	fmt.Println("sync.profile-------------")
+	for fileFullName, fileMap2BaseName := range syncFileMaps {
+		fmt.Println(fileFullName, "=>", fileMap2BaseName)
+	}
+	fmt.Println("sync.profile-------------")
 
 	for _, fileFullName := range files {
 		fileBaseName := strings.TrimPrefix(fileFullName, curDir+rpackage.Separator)
@@ -135,6 +140,9 @@ func parseArgs(args []string) string {
 		scanPath, _ = os.Getwd()
 	} else {
 		scanPath = args[1]
+
+		//strTestPath := "D:/code/suirui/svn/1_CodeLib/05.PC/SRQT/R/src/srfoundation/src"
+		fmt.Println("args[1] is :", scanPath)
 		scanPath, _ = filepath.Abs(scanPath)
 	}
 	return scanPath
@@ -145,7 +153,6 @@ func main() {
 	args := os.Args //获取用户输入的所有参数
 	syncRootDir = parseArgs(args)
 
-	syncRootDir, _ = os.Getwd()
 	fmt.Println(syncRootDir)
 	sync(syncRootDir)
 }
