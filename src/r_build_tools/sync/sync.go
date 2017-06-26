@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"rpackage"
 	"strings"
+	//"syscall"
 )
 
 var (
@@ -59,7 +60,10 @@ func copyFile2Include(filesMap map[string]string) {
 					curPath, _ := os.Getwd()
 					ok, _ := rpackage.PathExists(curPath + rpackage.Separator + subDir)
 					if !ok {
-						os.Mkdir(subDir, os.ModeDir)
+						//oldMask := syscall.Umask(0)
+						os.Mkdir(subDir, 0777)
+						//syscall.Umask(oldMask)
+						//os.Chmod(subDir, os.FileMode)
 						fmt.Println("mkdir: ", subDir)
 					}
 					os.Chdir(subDir)
@@ -69,7 +73,7 @@ func copyFile2Include(filesMap map[string]string) {
 			}
 		}
 
-		rpackage.CopyFile(fileFullName, syncRootDir+destFileName)
+		//rpackage.CopyFile(fileFullName, syncRootDir+destFileName)
 		fmt.Println(fileFullName, " ====>>>> ", syncRootDir+destFileName)
 		desFile, err := os.Create(targetFileFullName)
 		if err != nil {
@@ -79,7 +83,7 @@ func copyFile2Include(filesMap map[string]string) {
 		relFilePath = strings.TrimPrefix(relFilePath, rpackage.Separator)
 		fmt.Println(" relFilePath after TrimPrefix is : ", relFilePath)
 		relFilePath = strings.Replace(relFilePath, rpackage.Separator, "/", -1)
-		desFile.WriteString("#include " + "\"" + relFilePath + "\"")
+		desFile.WriteString("#include " + "\"../" + relFilePath + "\"")
 		defer desFile.Close()
 		fmt.Println("**********************************")
 		continue
@@ -131,6 +135,7 @@ func sync(curDir string) {
 		fmt.Println(fileFullName, "=>", fileMap2BaseName)
 	}
 
+	//编译时，指向源文件目录里的头文件
 	copyFile2Include(syncFileMaps)
 }
 
