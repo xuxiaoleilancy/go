@@ -15,14 +15,22 @@ var (
 
 	//获取要删除的文件扩展名列表
 	removeFileList, errRemoveFileRead = rpackage.Readline("removefile.txt")
+
+	//获取例外目录名列表
+	removepathExcludeList, errRemovePathExcludeRead = rpackage.Readline("removepathexclude.txt")
 )
 
 func cleanFunc(scanPath string, f os.FileInfo, err error) error {
 	if f == nil {
 		return err
 	}
+	println("path----" + scanPath)
+	return nil
 	if f.IsDir() {
 		pathName := filepath.Base(scanPath)
+		if rpackage.ContainsString(removepathExcludeList, pathName) {
+			return nil
+		}
 		if rpackage.ContainsString(removepathList, pathName) {
 			println("remove path----" + scanPath)
 			os.RemoveAll(scanPath)

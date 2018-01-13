@@ -1,0 +1,7 @@
+.sln
+.sdf
+.suo
+.vcxproj
+.filters
+.user
+.opensdf
