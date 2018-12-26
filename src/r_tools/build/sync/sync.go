@@ -119,9 +119,9 @@ func copyFile2Include(filesMap map[string]string) {
 				//				if nLen == MD5_LINE {
 				//					var oldMd5String = line
 				//				}
-				fmt.Println("~~~~~~~~~~~~~~~~~~~")
-				fmt.Printf("%d,%s", nLen, line)
-				fmt.Println("~~~~~~~~~~~~~~~~~~~")
+				//				fmt.Println("~~~~~~~~~~~~~~~~~~~")
+				//				fmt.Printf("%d,%s", nLen, line)
+				//				fmt.Println("~~~~~~~~~~~~~~~~~~~")
 				if nLen == INCLUDE_FILE_LINE {
 					oldIncludeString = line
 
