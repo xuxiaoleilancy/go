@@ -26,17 +26,41 @@ func PathExists(path string) (bool, error) {
 	return false, err
 }
 
+//拷贝文件，并自动创建目录
+func CopyFileAdvanced(src, des string) (w int64, err error) {
+	exist, err := PathExists(filepath.Dir(des))
+	if err != nil {
+		return 0, err
+	}
+	if !exist {
+		err := os.MkdirAll(filepath.Dir(des), 0766)
+		if err != nil {
+			return 0, err
+		}
+	}
+	return CopyFile(src, des)
+}
+
 //拷贝文件，调用此接口之前请确保目标目录存在
 func CopyFile(src, des string) (w int64, err error) {
+	sourceFileStat, err := os.Stat(src)
+	if err != nil {
+		return 0, err
+	}
+
+	if !sourceFileStat.Mode().IsRegular() {
+		return 0, fmt.Errorf("%s is not a regular file", src)
+	}
+
 	srcFile, err := os.Open(src)
 	if err != nil {
-		fmt.Println(err)
+		return 0, err
 	}
 	defer srcFile.Close()
 
 	desFile, err := os.Create(des)
 	if err != nil {
-		fmt.Println(err)
+		return 0, err
 	}
 	defer desFile.Close()
 
