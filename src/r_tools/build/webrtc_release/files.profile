@@ -1,2 +1,4 @@
 ##
 *.h
+
+src/lib/*.lib
