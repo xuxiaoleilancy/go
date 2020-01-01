@@ -1,0 +1,33 @@
+{
+  "structs": 
+  [
+    {
+      "type":"RVideoSelectBean_t",
+      "members":
+      [
+        ["int32_t","tId","0"],
+		["int32_t","videoid","0"],
+		["int32_t","replaceTId","0"],
+		["int32_t","replacevideoId","0"],
+		["int32_t","width","0"],
+		["int32_t","height","0"],
+		["bool","isDelay","false"]
+      ]
+    },
+    {
+      "type":"RModeVideoSelectBean_t",
+      "members":
+      [
+          ["int32_t","mode"],
+		  ["[RVideoSelectBean_t]","selectbeans"]
+      ]
+    },
+    {
+      "type":"RVideoSelecteds_t",
+      "members":
+      [
+          ["[RVideoSelectBean_t]","selects"]
+      ]
+    }
+  ]
+}

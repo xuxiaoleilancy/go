@@ -1,0 +1,17 @@
+{ 	
+    "structs": [
+		{
+            "type": "RProductOptions_t",
+            "members": [
+                ["int32_t","pdtype","0"],
+                ["int32_t","clienttype","0"]
+            ]
+        },
+		{
+			"type": "RFunctionOptions_t",
+            "members": [
+                ["bool","speakerisvalid","true"]
+            ]
+		}
+    ]
+}

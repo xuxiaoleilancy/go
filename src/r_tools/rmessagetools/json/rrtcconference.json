@@ -1,0 +1,147 @@
+{
+	"headers":[
+        {"header":"conference/rconferencestate.h"}
+    ],
+    "structs": [
+        {
+            "type": "RConferencesIndex_t",
+            "members": [
+                [ "int32_t", "owner", "0" ],
+                [ "int32_t", "myself", "0" ],
+                [ "int32_t", "chairman", "0" ],
+                [ "[int32_t]", "assistchairmans" ],
+                [ "int32_t", "focus", "0" ],
+                [ "int32_t", "speaker1", "0" ],
+                [ "int32_t", "speaker2", "0" ],
+                [ "int32_t", "master", "0" ],
+                [ "int32_t", "sharer", "0" ],
+                [ "int32_t", "select", "0" ]
+            ]
+        },
+        {
+            "type": "RConferencesInfo_t",
+            "members": [
+                [ "SubtitleInfo_t", "subtitle" ],
+                [ "RRecInfo_t", "recordinfo" ],
+                [ "RLiveInfo_t", "liveinfo" ],
+                [ "[WhiteListInfo_t]", "whitelists" ]
+            ]
+        },
+        {
+            "type": "RConferences_t",
+            "members": [
+                [ "RConfStatus_t", "states" ],
+                [ "RConferencesInfo_t", "infos" ],
+                [ "RConferencesIndex_t", "index" ]
+            ]
+        },
+        {
+            "type": "RBeforeJoiningOtherInfos_t",
+            "members": [
+                [ "string", "tername" ],
+                [ "string", "domain", "" ],
+                [ "string", "appid", "" ],
+                [ "string", "serverid" ],
+                [ "string", "nickname" ],
+                [ "int32_t", "paasuid" ],
+                [ "string", "paastoken" ],
+                [ "bool", "isstartvideo", "true" ],
+                [ "bool", "isstartaudio", "true" ],
+                [ "string", "confpwd" ],
+                [ "string", "confname" ],
+                [ "string", "confid" ],
+                [ "string", "subject" ],
+                [ "int32_t", "specialtype" ],
+                [ "int32_t", "screentype" ],
+                [ "int32_t", "termType" ],
+                [ "int32_t", "avtype", "1" ],
+                [ "int32_t", "sharedaudio", "0" ]
+            ]
+        },
+        {
+            "type": "RBeforeJoiningSdkInfos_t",
+            "members": [
+                [ "string", "adaptinfo" ],
+                [ "string", "thirdaudioid" ]
+            ]
+        },
+        {
+            "type": "RBeforeJoiningInfos_t",
+            "members": [
+                [ "RBeforeJoiningSdkInfos_t", "sdkinofs" ],
+                [ "RBeforeJoiningOtherInfos_t", "otherinfos" ]
+            ]
+        },
+        {
+            "type": "RDeviceCameraInfo_t",
+            "members": [
+            	[ "int","index"],
+                [ "string", "name" ],
+                [ "string", "uniqename" ]
+            ]
+        },
+        {
+            "type": "DeviceStatusOpration_t",
+            "members": [
+            	[ "int","device_type"],
+            	["RDeviceCameraInfo_t","camera"],
+                [ "string", "deviceUrl" ],
+                ["int","expectCaptureResolution"],                		       
+				["int","expectCaptureFps"],
+                [ "bool", "isSendConference" ],
+                [ "bool", "isPreview" ]
+            ]
+        },
+        {
+            "type": "DeviceStatusOprationList_t",
+            "members": [
+                [ "[DeviceStatusOpration_t]", "cameras" ]
+            ]
+        },
+        {
+            "type": "RDeviceCameraInfos_t",
+            "members": [
+                [ "[RDeviceCameraInfo_t]", "cameras" ],
+                [ "string", "currentUniqueName", "" ]
+            ]
+        },
+        {
+            "type": "RDeviceAudioInfos_t",
+            "members": [
+                [ "[string]", "audiodevices" ]
+            ]
+        },
+        {
+            "type": "RChangeScreen_t",
+            "members": [
+                [ "string", "op", "" ],
+                [ "string", "screen1", "" ],
+                [ "string", "screen2", "" ],
+                [ "string", "screen3", "" ]
+            ]
+        },
+        {
+            "type": "RReJoiningInfos_t",
+            "members": [
+                [ "string", "warninttext", "" ],
+                [ "int32_t", "currentrejoincount" ],
+                [ "int32_t", "rejoincount" ]
+            ]
+        },
+        {
+            "type": "RRtcJoiningCancelRsp_t",
+            "members": [
+                [ "string", "code", "" ],
+                [ "string", "des", "" ]
+            ]
+        },
+        {
+            "type": "RChangeScreenResult_t",
+            "members": [
+                [ "string", "op", "" ],
+                [ "bool", "status", "true" ],
+                [ "string", "msg", "" ]
+            ]
+        }
+    ]
+}

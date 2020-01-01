@@ -1,0 +1,84 @@
+{
+	"headers":[
+		{"header":"options/rcontroloptions.h"}
+    ],
+    "structs": [
+        {
+            "type": "RLogoLabelOptions_t",
+            "members": [
+                [ "RSizeOptions_t", "size" ],
+                [ "string", "image", "huijian-logo-w.png" ],
+                [ "bool", "isVisible", "true" ]
+            ]
+        },
+        {
+            "type": "RTitleLabelOptions_t",
+            "members": [
+                [ "RTextOptions_t", "text"],
+                [ "bool", "isVisible", "true" ]
+            ]
+        },
+        {
+            "type": "RNetLabelOptions_t",
+            "members": [
+                [ "RTextOptions_t", "text"],
+                [ "string", "generalImg", "net_poor.png" ],
+                [ "string", "goodImg", "net_good.png" ],
+                [ "string", "poorImg", "net_general.png" ],
+                [ "bool", "isVisible", "true" ]
+            ]
+        },
+        {
+            "type": "RMinButtonOptions_t",
+            "members": [
+                [ "RTextOptions_t", "text" ],
+                [ "RSizeOptions_t", "size" ],
+                [ "string", "normalImg", "top_min_normal.png" ],
+                [ "string", "hoverImg", "top_min_hover.png" ],
+                [ "bool", "isVisible", "true" ]
+            ]
+        },
+        {
+            "type": "RMaxButtonOptions_t",
+            "members": [
+                [ "RTextOptions_t", "text" ],
+                [ "RSizeOptions_t", "size" ],
+                [ "string", "normalImg", "top_max_normal.png" ],
+                [ "string", "hoverImg", "top_max_hover.png" ],
+                [ "bool", "isVisible", "true" ]
+            ]
+        },
+        {
+            "type": "RNormalButtonOptions_t",
+            "members": [
+                [ "RTextOptions_t", "text" ],
+                [ "RSizeOptions_t", "size" ],
+                [ "string", "normalImg", "top_reduce_normal.png" ],
+                [ "string", "hoverImg", "top_reduce_hover.png" ],
+                [ "bool", "isVisible", "true" ]
+            ]
+        },
+        {
+            "type": "RCloseButtonOptions_t",
+            "members": [
+                [ "RTextOptions_t", "text" ],
+                [ "RSizeOptions_t", "size" ],
+                [ "string", "normalImg", "top_reduce_normal.png" ],
+                [ "string", "hoverImg", "top_reduce_hover.png" ],
+                [ "bool", "isVisible", "true" ]
+            ]
+        },
+        {
+            "type": "RTitleBarOption_t",
+            "members": [
+                [ "RLogoLabelOptions_t", "logoLabel" ],
+                [ "RTitleLabelOptions_t", "titleLabel" ],
+                [ "RNetLabelOptions_t", "netLabel" ],
+                [ "RMinButtonOptions_t", "minBtn" ],
+                [ "RMaxButtonOptions_t", "maxBtn" ],
+                [ "RNormalButtonOptions_t", "normalBtn" ],
+                [ "RCloseButtonOptions_t", "closeBtn" ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{ 	
+	"headers":[
+		{"header":"../core/rcustomoptions.h"}
+		
+    ],
+    "structs": [
+        {
+            "type": "RTextOptions_t",
+            "members": [
+                [ "string", "font", "16px Microsoft YaHei" ],
+                [ "string", "color", "rgba(255,255,255,255)" ],
+                [ "string", "text", "" ]
+            ]
+        },
+        {
+            "type": "RSizeOptions_t",
+            "members": [
+                [ "int32_t", "minWidth", "0" ],
+                [ "int32_t", "minHeight", "0" ],
+                [ "int32_t", "maxWidth", "16777215" ],
+                [ "int32_t", "maxHeight", "16777215" ]
+            ]
+        },
+        {
+            "type": "RMarginOptions_t",
+            "members": [
+                [ "int32_t", "left", "0" ],
+                [ "int32_t", "top", "0" ],
+                [ "int32_t", "right", "0" ],
+                [ "int32_t", "bottom", "0" ]
+            ]
+        }, 
+        {
+            "type": "RBorderOptions_t",
+            "members": [
+                [ "string", "width", "0" ],
+                [ "string", "style", "0" ],
+                [ "string", "color", "rgba(255,255,255,255)" ]
+            ]
+        }, 
+		{
+            "type": "RImageOptions_t",
+            "members": [
+				[ "string", "normalImg", "" ],
+                [ "string", "hoverImg", "" ],
+				[ "string", "selectImg", "" ],
+				[ "string", "enableImg", "" ],
+				[ "string", "disabledImg", "" ],
+				[ "RCustomOptions_t", "custom" ]
+            ]
+        },
+		{
+            "type": "RControlOptions_t",
+            "members": [
+				[ "RTextOptions_t", "text" ],
+                [ "RSizeOptions_t", "size" ],
+				[ "RMarginOptions_t", "margin" ],
+				[ "RBorderOptions_t", "border" ],
+				[ "RImageOptions_t", "image" ],
+				[ "bool", "isvisible", "true" ]
+            ]
+        }
+    ]
+
+}

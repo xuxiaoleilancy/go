@@ -1,0 +1,39 @@
+{
+	"headers":[
+        {"header":"../core/rrect.h"}
+    ],
+    "structs": [
+        {
+            "type": "RIPScreenOptions_t",
+            "members": [
+                [ "bool", "is_valid", "false" ],
+                [ "string", "ip", "" ]
+            ]
+        },
+        {
+            "type": "RScreenOptions_t",
+            "members": [
+                [ "RRect_t", "resolution" ],
+                [ "string", "name", "" ],
+                [ "bool","is_hidden","true"],
+				[ "bool","is_init","false"],
+				[ "int32_t", "modeid", "-1" ],
+                [ "RIPScreenOptions_t", "ip_options" ]
+            ]
+        },
+        {
+            "type": "RScreen_t",
+            "members": [
+                [ "int32_t", "id", "-1" ],
+                [ "RScreenOptions_t", "options" ]
+            ]
+        },
+        {
+            "type":"RScreens_t",
+            "members":
+            [
+                ["[RScreen_t]", "screens"]
+            ]
+        }
+    ]
+}

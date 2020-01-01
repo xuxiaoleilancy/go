@@ -1,0 +1,63 @@
+{
+    "structs": [
+        {
+            "type": "RGetConferenceIdRsp_t",
+            "members": [
+                [ "string", "conferenceid", "" ]
+            ]
+        },
+        {
+            "type": "RStartMeetingReq_t",
+            "members": [
+                [ "bool", "isUseMyConference", "false" ],
+                [ "string", "appid", "" ],
+                [ "string", "uid", "" ],
+                [ "string", "token", "" ],
+                [ "string", "nickname", "" ],
+                [ "string", "conferenceId", "" ],
+                [ "string", "pwd", "" ],
+                [ "string", "domain", "" ],
+                [ "string", "serverId", "" ]
+            ]
+        },
+        {
+            "type": "RGetMeetingHasPwdReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "conferenceId", "" ]
+            ]
+        },
+        {
+            "type": "RGetMeetingHasPwdRsp_t",
+            "members": [
+                [ "bool", "hasPwd", "false" ],
+                [ "string", "code", "" ],
+                [ "string", "des", "" ]
+            ]
+        },
+        {
+            "type": "RJoinMeetingReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "uid", "" ],
+                [ "string", "token", "" ],
+				[ "string", "domain", "" ],
+				[ "string", "serverid", "123456" ],
+                [ "string", "nickname", "" ],
+                [ "string", "conferenceId", "" ],
+                [ "string", "pwd", "" ],
+				[ "bool", "bstartvideo", "true" ],
+				[ "bool", "bstartaudio", "true" ],
+				[ "int32_t", "speicalType", "0" ]
+            ]
+        },
+        {
+            "type": "RJoinMeetingInfoRsq_t",
+            "members": [
+                [ "string", "confid", "" ],
+                [ "string", "confname", "" ],
+                [ "string", "starttime", "" ]
+            ]
+        }
+    ]
+}

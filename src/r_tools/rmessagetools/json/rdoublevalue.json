@@ -1,0 +1,59 @@
+{
+  "structs": 
+  [
+    {
+        "type": "RMessageIntBool_t",
+        "members": [
+            [ "int32_t", "ivalue", "0" ],
+            [ "bool", "bvalue" ]
+        ]
+    },
+    {
+      "type":"RMessageBoolBool_t",
+      "members":
+      [
+        ["bool","kvalue"],
+        ["bool","bvalue"]
+      ]
+    },
+    {
+      "type":"RMessageIntString_t",
+      "members":
+      [
+        ["int32_t","ivalue","0"],
+        ["string","svalue"]
+      ]
+    },
+	{
+      "type":"RMessageStringString_t",
+      "members":
+      [
+        ["string","kvalue",""],
+        ["string","vvalue",""]
+      ]
+    },
+	{
+      "type":"RMessageIntInt_t",
+      "members":
+      [
+        ["int32_t","kvalue","0"],
+        ["int32_t","vvalue","0"]
+      ]
+    },
+    {
+        "type": "RMessageStringInt_t",
+        "members": [
+            [ "string", "kvalue", "" ],
+            [ "int32_t", "vvalue", "0" ]
+        ]
+    },
+    {
+      "type":"RMessageBoolString_t",
+      "members":
+      [
+        ["bool","kvalue","false"],
+        ["string","vvalue",""]
+      ]
+    }
+  ]
+}

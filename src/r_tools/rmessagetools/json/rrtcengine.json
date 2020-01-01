@@ -1,0 +1,369 @@
+{
+	"headers":[
+		{"header":"conference/rsubtitleinfo.h"},
+		{"header":"conference/rconferencewhite.h"},
+		{"header":"result/rresult.h"}
+    ],
+    "structs": [
+        {
+            "type": "SRCpuUsageParam_t",
+            "members": [
+                [ "int32_t", "usage", "0" ],
+                [ "int8_t", "flag", "0" ]
+            ]
+        },
+        {
+            "type": "SRNetWorkInfoParam_t",
+            "members": [
+                [ "int32_t", "SREngineNetworkType", "0" ],
+                [ "int32_t", "SREngineNetworkOperator", "0" ],
+                [ "int32_t", "SREnginePlatFormType", "0" ]
+            ]
+        },
+        {
+            "type": "SRUserSetParam_t",
+            "members": [
+                [ "bool", "has_cpu_param", "false" ],
+                [ "SRCpuUsageParam_t", "cpu_param" ],
+                [ "bool", "has_network_param", "false" ],
+                [ "SRNetWorkInfoParam_t", "network_param" ]
+            ]
+        },
+        {
+            "type": "SRUseApmType_t",
+            "members": [
+                [ "string", "version3" ],
+                [ "string", "id3" ],
+                [ "string", "appId" ],
+                [ "string", "clientModel" ],
+                [ "string", "clientVersion" ]
+            ]
+        },
+        {
+            "type": "CryptionContent_t",
+            "members": [
+                [ "string", "s_secretkey" ],
+                [ "string", "a_publickey" ],
+                [ "string", "a_privatekey" ],
+                [ "int32_t", "s_mode", "0" ],
+                [ "int32_t", "a_mode", "0" ]
+            ]
+        },
+        {
+            "type": "McInfo_t",
+            "members": [
+                [ "int32_t", "ipandport", "0" ],
+                [ "int32_t", "listenport", "0" ],
+                [ "[string]", "relaymc_info" ]
+            ]
+        },
+        {
+            "type": "UserInfo_t",
+            "members": [
+                [ "int32_t", "termUId", "0" ],
+                [ "int32_t", "mediagroupid", "0" ],
+                [ "int32_t", "specialtype", "0" ],
+                [ "int32_t", "usertype", "0" ],
+                [ "string", "termUName" ]
+            ]
+        },
+        {
+            "type": "ConfInfo_t",
+            "members": [
+                [ "uint64_t", "conf_id", "0" ],
+                [ "string", "password" ]
+            ]
+        },
+        {
+            "type": "MediaAudioOpt_t",
+            "members": [
+                [ "int32_t", "plfreq", "0" ],
+                [ "bool", "useDrc", "false" ],
+                [ "bool", "useStereo", "false" ]
+            ]
+        },
+        {
+            "type": "TermInfo_t",
+            "members": [
+                [ "int32_t", "termid", "0" ],
+                [ "int32_t", "suid", "0" ],
+                [ "int32_t", "specialtype", "0" ],
+                [ "int32_t", "protocoltype", "0" ],
+                [ "int32_t", "bandwidth", "0" ],
+                [ "int32_t", "usertype", "0" ],
+                [ "int32_t", "devicetype", "0" ],
+                [ "string", "tername" ],
+                [ "string", "ip" ],
+                [ "string", "calloption" ],
+                [ "bool", "ismuted", "false" ],
+                [ "bool", "iscamera_on", "false" ],
+                [ "bool", "ishandup", "false" ],
+                [ "bool", "isonline", "false" ]
+            ]
+        },
+        {
+            "type": "NetWorkStatus_t",
+            "members": [
+                [ "int32_t", "network_download_status", "0" ],
+                [ "int32_t", "network_upload_status", "0" ]
+            ]
+        },
+        {
+            "type": "SRVoiceActiveInfo_t",
+            "members": [
+                [ "int32_t", "talk_id", "0" ],
+                [ "int32_t", "energy", "0" ]
+            ]
+        },
+        {
+            "type": "SRVoiceActiveInfos_t",
+            "members": [
+                [ "[SRVoiceActiveInfo_t]", "voice_acives" ]
+            ]
+        },
+        {
+            "type": "SRMediaPScreenInfo_t",
+            "members": [
+                [ "int32_t", "screenid", "0" ],
+                [ "int32_t", "screentype", "0" ]
+            ]
+        },
+        {
+            "type": "SRMediaPInfo_t",
+            "members": [
+                [ "int32_t", "channelid", "0" ],
+                [ "[SRMediaPScreenInfo_t]", "screens" ]
+            ]
+        },
+        {
+            "type": "SRScreenLableAttr_t",
+            "members": [
+                [ "int32_t", "labelterid", "0" ],
+                [ "int32_t", "operatetype", "0" ],
+                [ "int32_t", "lableid", "0" ],
+                [ "int32_t", "labletype", "0" ],
+                [ "int32_t", "lablesize", "0" ],
+                [ "int32_t", "lablecolor", "0" ],
+                [ "int32_t", "linetype", "0" ],
+                [ "int32_t", "leftuppoints_x", "0" ],
+                [ "int32_t", "leftuppoints_y", "0" ],
+                [ "int32_t", "rightdownpoints_x", "0" ],
+                [ "int32_t", "rightdownpoints_y", "0" ],
+                [ "int32_t", "resolution_x", "0" ],
+                [ "int32_t", "resolution_y", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlDropTerm_t",
+            "members": [
+                [ "int32_t", "drop_stermid", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlMasterTransfer_t",
+            "members": [
+                [ "int32_t", "new_stermid", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlAssistChairman_t",
+            "members": [
+                [ "int32_t", "assist_chairman_stermid", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlLockVideo_t",
+            "members": [
+                [ "int32_t", "lock_stermid", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlUnLockVideo_t",
+            "members": [
+                [ "int32_t", "unlock_stermid", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlChairEndConf_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlMuteAudioAllTerm_t",
+            "members": [
+                [ "bool", "ismute", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlLockConf_t",
+            "members": [
+                [ "bool", "islock", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlChangeConfMode_t",
+            "members": [
+                [ "int32_t", "newconfmode", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlReqConfStatus_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlForceMute_t",
+            "members": [
+                [ "bool", "isforcemute", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRPaneInfo_t",
+            "members": [
+                [ "int32_t", "paneindex", "0" ],
+                [ "int32_t", "contenttype", "0" ],
+                [ "int32_t", "optype", "0" ],
+                [ "int32_t", "polltime", "0" ],
+                [ "int32_t", "terid", "0" ],
+                [ "string", "tername", "0" ]
+            ]
+        },
+        {
+            "type": "SRLayoutInfo_t",
+            "members": [
+                [ "int32_t", "layouttype", "0" ],
+                [ "int32_t", "layoutmode", "0" ],
+                [ "[SRPaneInfo_t]", "panes" ],
+                [ "SRMediaPInfo_t", "mpinfo" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlSRLayoutInfo_t",
+            "members": [
+                [ "SRLayoutInfo_t", "layout" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlReqLayoutInfo_t",
+            "members": [
+                [ "int32_t", "layouttype", "0" ],
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlAddSubtitle_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "string", "subtitlemsg" ],
+                [ "SubtitleInfo_t", "subtitle_info" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlStopSubtitle_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlChangeConfCryptoKey_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "string", "cryptokey" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlSetStdTerSeeingStyle_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "int", "seeingstyle", "0" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlSetWhitelist_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "WhiteListInfo_t", "whitelistinfo" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlAddParticipants_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "[TermInfo_t]", "participants" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlDelParticipants_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "[int32_t]", "participants" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlInvitParticipants_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "[TermInfo_t]", "participants" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlStartMeetingRecord_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "bool", "is_record_mp", "false" ],
+                [ "int32_t", "stermid", "0" ],
+                [ "SRMediaPInfo_t", "mp_info" ]
+            ]
+        },
+        {
+            "type": "SRConferenceCtrlTransferSpecialtype_t",
+            "members": [
+                [ "int32_t", "sponsortype", "0" ],
+                [ "int32_t", "nspcltype", "0" ]
+            ]
+        },
+        {
+            "type": "OnRspJoinConf_t",
+            "members": [
+                [ "int32_t", "stermid", "0" ],
+                [ "RResult_t", "result"]
+            ]
+        },
+        {
+            "type": "OnTermLeave_t",
+            "members": [
+                [ "int32_t", "leave_stermid", "0" ],
+                [ "RError_t", "leave_reason" ]
+            ]
+        },
+        {
+            "type": "OnRecvConfMessage_t",
+            "members": [
+                [ "int32_t", "from_stermid", "0" ],
+                [ "string", "message" ]
+            ]
+        },
+        {
+            "type": "OnRspConfTermList_t",
+            "members": [
+                [ "int32_t", "chair_stermid", "0" ],
+                [ "int32_t", "dualvideo_stermid", "0" ],
+                [ "[TermInfo_t]", "termInfos" ],
+                [ "RResult_t", "result"]
+            ]
+        }    
+    ]
+
+}

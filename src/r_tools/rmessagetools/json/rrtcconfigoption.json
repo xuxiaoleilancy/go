@@ -1,0 +1,44 @@
+{
+	"headers":[
+        {"header":"core/rcolor.h"}
+    ],
+    "structs": [
+         {
+            "type": "RAudioParam_t",
+            "members": [
+                [ "bool", "defaultMicrophoneState", "false" ],
+                [ "string", "currentCaptureDevice", "" ],
+				[ "string", "currentOutputDevice", "" ],
+				[ "int32_t", "outputDeviceLevel", "60" ],
+				[ "int32_t", "captureDeviceLevel", "100" ]
+            ]
+        },
+        {
+            "type": "RVideoParam_t",
+            "members": [
+				[ "string", "captureName", "" ],
+                [ "int32_t", "frameRate", "30" ],
+				[ "int32_t", "frameRate_w", "1280" ],
+				[ "int32_t", "FrameRate_h", "720" ]
+            ]
+        },
+        {
+            "type": "RDesktopCaptureParam_t",
+            "members": [
+                [ "bool", "filtrateEnable", "false" ],
+                [ "bool", "fluencyEnable", "false" ],
+				[ "int32_t", "fluencyFps", "35" ],
+                [ "int32_t", "fps", "10" ]
+            ]
+        },
+		{
+            "type": "RScreenInfoParam_t",
+            "members": [
+                [ "string", "name", "" ],
+                [ "string", "ip", "" ],
+				[ "int32_t", "w", "1920" ],
+                [ "int32_t", "h", "1080" ]
+            ]
+        }
+    ]
+}

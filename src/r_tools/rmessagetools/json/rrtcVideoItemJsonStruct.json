@@ -1,0 +1,111 @@
+{
+	"headers":[
+		{"header":"result/rresult.h"},
+		{"header":"group/rgroup.h"},
+		{"header":"device/rdevice.h"},
+		{"header":"rsinglevalue.h"}
+    ],
+    "structs": [
+        {
+            "type": "RRtcVideoItemState_t",
+            "members": [
+                [ "int32_t", "termid", "0" ],
+                [ "string", "nickName" ],
+                [ "int32_t", "suid", "0" ],
+				[ "[RDevice_t]", "videos" ],
+				[ "[RDevice_t]", "audios" ],
+                [ "int32_t", "videostate", "0" ],
+                [ "int32_t", "audiostate", "0" ],
+                [ "bool", "ishandup", "false" ],
+                [ "bool", "isonline", "false" ],
+                [ "int32_t", "authorities", "0" ],
+                [ "string", "ip" ],
+                [ "int32_t", "protocoltype", "0" ],
+                [ "int32_t", "bandwidth", "0" ],
+                [ "int32_t", "usertype", "0" ],
+                [ "int32_t", "specialtype", "0" ],
+                [ "int32_t", "devicetype", "0" ],
+                [ "int32_t", "groupType", "0" ],
+                [ "int32_t", "fromType", "0" ],
+                [ "int32_t", "termType", "0" ]
+            ]
+        },
+        {
+            "type": "RRtcVideoItemStates_t",
+            "members": [
+                [ "[RRtcVideoItemState_t]", "states" ]
+            ]
+        },
+        {
+            "type": "RRtcVideoItem_t",
+            "members": [
+                [ "int32_t", "id", "0" ],
+                [ "RRtcVideoItemState_t", "state" ]
+            ]
+        },
+        {
+            "type": "RRtcVideoItems_t",
+            "members": [
+                [ "[RRtcVideoItem_t]", "items" ]
+            ]
+        },
+		{
+            "type": "RParticipantOptions_t",
+            "members": [
+                [ "int32_t", "id" ],
+				[ "string", "nickName", ""],
+				[ "string", "third_uid","" ],
+				[ "int32_t", "type" ]
+            ]
+        },
+		{
+            "type": "RParticipants_t",
+            "members": [
+                [ "[RParticipantOptions_t]", "participants" ]
+            ]
+        },
+        {
+            "type": "RRtcAddParticipants_t",
+            "members": [
+                [ "[RRtcVideoItemState_t]", "participants" ]
+            ]
+        },
+        {
+            "type": "RRtcDelParticipants_t",
+            "members": [
+                [ "[int32_t]", "participants" ]
+            ]
+        },
+        {
+            "type": "RRtcRspJoinConf_t",
+            "members": [
+                [ "int32_t", "stermid", "0" ],
+                [ "RResult_t", "result" ],
+                [ "RGroupMeetingRoomInfo_t", "groupInfo" ]
+            ]
+        },
+        {
+            "type": "RConfTermList_t",
+            "members": [
+                [ "int32_t", "chair_stermid", "0" ],
+                [ "int32_t", "dualvideo_stermid", "0" ],
+                [ "RResult_t", "result" ],
+                [ "[RRtcVideoItemState_t]", "termInfos" ]
+            ]
+        },
+		{
+            "type": "RTermDevices_t",           
+            "members": [
+                ["int32_t","termid", "0"],               
+				["[RDevice_t]","devices"]              
+            ]
+        },
+		{
+            "type": "RTermSrcIds_t",           
+            "members": [
+                ["int32_t","termid", "0"],               
+				["[int32_t]","videoids"]              
+            ]
+        }
+    ]
+}

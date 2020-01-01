@@ -1,0 +1,15 @@
+{
+    "headers":[
+        {"header":"rpointf.h"},
+        {"header":"rsizef.h"}
+    ],
+    "structs": [
+        {
+            "type": "RRectF_t",
+            "members": [
+                [ "RPointF_t", "top_left" ],
+                [ "RSizeF_t", "size" ]
+            ]
+        }
+    ]
+}

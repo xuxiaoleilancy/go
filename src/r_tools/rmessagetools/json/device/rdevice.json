@@ -1,0 +1,144 @@
+{
+	"headers":[
+        {"header":"stream/rstream.h"}
+    ],
+    "structs": [
+		{
+            "type": "RDeviceOptions_t",
+            "members": [
+                [ "int32_t","id", "-1"],
+				[ "int32_t", "pri", "0" ],
+                [ "string", "name", "" ],
+                [ "string", "uniqename", "" ],
+                ["int32_t","controlTypes","0"],
+				[ "string", "hardwareId", "" ],
+				[ "int32_t","state"],
+		["int32_t","controlType","0"],
+		["int32_t","protocolType","0"],
+		["bool","isOnline"],
+		["bool","isRegester"],
+		[ "int32_t", "miorror"]
+            ]
+        },
+	{
+	    "type":"controyOptions_t",
+	     "members":[
+	    	["string","uniqename",""],
+		["int32_t","controlTypes","0"],
+		["int32_t","termid","0"]
+            ]
+	},
+        {
+            "type": "RNetScreen_t",
+            "members": [
+                [ "int32_t","uid", "-1"],
+                [ "int32_t", "w", "0" ],
+                [ "int32_t","h","0"],
+                [ "string", "scrennName", "" ],
+                ["int32_t","modeid","0"],
+                [ "string", "macAddr", "" ],
+                [ "string", "ip", "" ]
+            ]
+        },
+	{
+	   "type": "RNetCameraPresetposition_t",
+	   "members":[
+		["string","hw_uniqname",""],
+		["string","uniqName",""],
+		["bool","result"],
+		["int32_t","action","-1"],
+		["[RNetCameraPresetpositionOptions_t]","PresetpositionOption"]		   
+	    ]
+	},
+	{
+	   "type": "RNetCameraPresetpositions_t",
+	   "members":[
+		["[RNetCameraPresetposition_t]","CamerasPresetpositionOption"]		   
+	    ]
+	},
+		{
+	   "type": "RNetCameraPresetpositionOptions_t",
+	   "members":[
+		["int32_t","action","-1"],
+		["int32_t","presetid","-1"],
+		["string","presetname",""],
+		["string","uniqName",""],
+		["string","hw_uniqname",""]			   
+	    ]
+	},
+		{
+            "type": "RDevice_t",
+            "members": [
+            	[ "int32_t","type"],
+            	[ "int32_t","subtype"],
+		["RNetCameraPresetposition_t","devicePresetPosition"],
+            	[ "RDeviceOptions_t","options"]
+            ]
+        },
+		{
+            "type": "RDevices_t",
+            "members": [
+                [ "[RDevice_t]", "devices" ],
+                [ "string", "currentUniqueName", "" ]
+            ]
+        },
+        {
+            "type": "RVideoOptions_t",
+            "members": [
+            	[ "RDevice_t","video"],
+            	[ "REncodeOptions_t","capture_options"],
+            	[ "string", "editname", "" ],
+                [ "string", "deviceUrl" ],               		       
+                [ "bool", "isSendConference" ],
+                [ "bool", "isPreview" ]
+            ]
+        },
+        {
+            "type": "RVideos_t",
+            "members": [
+                [ "[RVideoOptions_t]", "videos" ]
+            ]
+        },
+		{
+            "type": "RDeviceNameList_t",
+            "members": [
+                ["[string]","namelist"],
+				["[string]","uniqueNameList"],
+				["string","currentName"]
+            ]
+        },
+		{
+            "type": "RDeviceStateOptions_t",           
+            "members": [
+                ["int32_t","termid", "0"],               
+				["[int32_t]","videoids"],               
+				["int32_t","state", "0"]               
+            ]
+        },
+        {
+            "type": "RNetCameraOptions_t",
+            "members": [
+                [ "int32_t","uid", "-1"],
+                [ "string", "name", "" ],
+                [ "string", "url", ""],
+                [ "string", "ip", "" ],
+                [ "string", "uniname", ""],
+                [ "int32_t", "priority"],
+		["string","hw_uniqname",""]	
+            ]
+        },
+        {
+            "type": "RNetCamera_t",
+            "members": [
+				[ "int32_t", "bOnline"],
+                [ "RNetCameraOptions_t", "options"]
+            ]
+        },
+        {
+            "type": "RNetCameras_t",
+            "members": [
+                [ "[RNetCamera_t]", "cameras"]
+            ]
+        }
+    ]
+}

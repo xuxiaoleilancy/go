@@ -1,0 +1,73 @@
+{ 	
+	"headers":[
+		{"header":"rcmdoption.h"},
+		{"header":"rinviteoption.h"}
+		
+    ],
+    "structs": [
+        {
+            "type": "RLoginOptions_t",
+            "members": [
+                [ "bool", "ishavedbus", "false" ],
+                [ "string", "ip", "" ],
+                [ "bool", "autoupdate", "true" ]
+            ]
+        },
+		{
+            "type": "RFtpOptions_t",
+            "members": [
+                [ "bool", "filetrans_fuc", "false" ]
+            ]
+        },
+
+	{
+            "type": "RLocalScreenOptions_t",
+            "members": [
+                [ "bool", "show_local", "true" ]
+            ]
+        },
+ 	{
+
+            "type": "RPluginOptions_t",
+            "members": [
+                [ "bool", "addressbook", "true" ],
+                [ "bool", "devicedetection", "true" ],
+                [ "bool", "invitation", "true" ],
+                [ "bool", "livelist", "true" ],
+                [ "bool", "personalsetting", "true" ],
+                [ "bool", "sharingscreen", "true" ],
+                [ "bool", "systemsetting", "true" ],
+                [ "bool", "versionupdate", "true" ],
+                [ "bool", "meeting", "true" ],
+                [ "bool", "schedulemeeting", "true" ],
+                [ "bool", "meetlist", "true" ],
+                [ "bool", "callin", "true" ]
+            ]
+        },
+		{
+            "type": "RAppOptions_t",
+            "members": [
+                [ "RLoginOptions_t", "login" ],
+		[ "RInviteOptions_t", "invite" ],
+		[ "RFtpOptions_t", "ftp" ],
+		[ "RCmdFormats_t", "cmds" ],
+		[ "RLocalScreenOptions_t", "localscreen" ],
+ 		[ "RPluginOptions_t", "plugin" ]
+            ]
+        },
+		{
+            "type": "RApp_t",
+            "members": [
+                [ "int32_t", "appid", "0"],
+		[ "RAppOptions_t", "options" ]
+            ]
+        },
+		{
+            "type": "RApps_t",
+            "members": [
+		[ "[RApp_t]", "apps" ]
+            ]
+        }
+    ]
+
+}

@@ -1,0 +1,19 @@
+{
+    "structs": [
+        {
+            "type": "RError_t",
+            "members": [
+                [ "int32_t", "cur_error", "0" ],
+                [ "string", "brief_reason" ],
+                [ "string", "detail_reason" ]
+            ]
+        },
+         {
+            "type": "RResult_t",
+            "members": [
+                [ "bool", "isok", "false" ],
+                [ "RError_t", "error" ]
+            ]
+        }
+    ]
+}

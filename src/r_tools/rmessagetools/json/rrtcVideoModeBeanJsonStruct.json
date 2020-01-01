@@ -1,0 +1,233 @@
+{
+    "headers":[
+        {"header":"core/rrect.h"},
+        {"header":"core/rrectf.h"},
+		{"header":"layout/rlayout.h"}
+    ],
+    "structs": [
+        {
+            "type": "RRenderRect_t",
+            "members": [
+                [ "int32_t", "id", "0" ],
+                [ "RRect_t", "absRect" ],
+                [ "RRectF_t", "rectF" ]
+            ]
+        },
+        {
+            "type": "RRectIdToRect_t",
+            "members": [
+                [ "int32_t", "rectId", "0" ],
+                [ "RRenderRect_t", "renderRect" ]
+            ]
+        },
+        {
+            "type": "RRtcVideoModeBean_t",
+            "members": [
+                [ "int32_t", "mode", "0" ],
+                [ "RRect_t", "windowGeometry" ],
+                [ "[RRectIdToRect_t]", "rects" ]
+            ]
+        },
+        {
+            "type": "RRtcSelectDataBean_t",
+            "members": [
+                [ "int32_t", "termId", "0" ],
+                [ "int32_t", "recyclingTime", "0" ],
+                [ "int32_t", "speakerLevel", "0" ]
+            ]
+        },
+        {
+            "type": "RRtcRectSelectBean_t",
+            "members": [
+                [ "int32_t", "rectId", "0" ],
+                [ "RRtcSelectDataBean_t", "data" ],
+                [ "int32_t", "mode" ],
+                [ "bool", "isBigRect" ],
+                [ "int32_t", "priority" ]
+            ]
+        },
+        {
+            "type": "RRtcUpdateGeometry_t",
+            "members": [
+                [ "int32_t", "mode", "0" ],
+                [ "RRect_t", "absRect" ]
+            ]
+        },
+        {
+            "type": "RRtcLayoutStyle_t",
+            "members": [
+                [ "int32_t", "mode" ],
+                [ "int32_t", "layout" ]
+            ]
+        },
+        {
+            "type": "RRtcLayoutSelectRects_t",
+            "members": [
+                [ "int32_t", "mode" ],
+                [ "int32_t", "layout" ],
+                [ "[RRtcRectSelectBean_t]", "rectSelectBeans" ]
+            ]
+        },
+        {
+            "type": "RRtcLayouts_t",
+            "members": [
+                [ "[RRtcLayoutSelectRects_t]", "layouts" ]
+            ]
+        },
+        {
+            "type": "RRtcLayoutAllData_t",
+            "members": [
+                [ "int32_t", "mode" ],
+                [ "int32_t", "layout" ],
+                [ "[RRtcRectSelectBean_t]", "selectRects" ],
+                [ "RRtcVideoModeBean_t", "modeBean" ]
+            ]
+        },
+        {
+            "type": "RRtcLayoutAllDatas_t",
+            "members": [
+                [ "[RRtcLayoutAllData_t]", "allDatas" ]
+            ]
+        },
+
+        {
+            "type": "RRtcSDKMediaScreen_t",
+            "members": [
+                [ "int32_t", "screenid", "0" ],
+                [ "int32_t", "screentype", "0" ]
+            ]
+        },
+        {
+            "type": "RRtcSDKMPInfo_t",
+            "members": [
+                [ "int32_t", "channelid", "0" ],
+                [ "[RRtcSDKMediaScreen_t]", "screens" ]
+            ]
+        },
+        {
+            "type": "RRtcSDKSRPaneInfo_t",
+            "members": [
+                [ "int32_t", "paneindex", "0" ],
+                [ "int32_t", "contenttype", "0" ],
+                [ "int32_t", "optype", "1" ],
+                [ "int32_t", "polltime", "0" ],
+                [ "int32_t", "terid", "0" ],
+				[ "int32_t", "videoid", "0" ],
+                [ "string", "tername" ]
+            ]
+        },
+        {
+            "type": "RRtcSDKSRLayoutInfo_t",
+            "members": [
+                [ "int32_t", "layouttype", "0" ],
+                [ "int32_t", "layoutmode", "0" ],
+                [ "[RRtcSDKSRPaneInfo_t]", "panes" ],
+				[ "[RTermVideoOptions_t]", "terms" ],
+                [ "RRtcSDKMPInfo_t", "mpinfo" ]
+            ]
+        },
+        {
+            "type": "RRtcSDKSRLayoutInfos_t",
+            "members": [
+                [ "[RRtcSDKSRLayoutInfo_t]", "layoutinfos" ]
+            ]
+        },
+        {
+            "type": "RRtcLayoutInfoRect_t",
+            "members": [
+                [ "int32_t", "rectid", "-1" ],
+                [ "int32_t", "recttype", "-1" ],
+                [ "int32_t", "termid", "0" ],
+				[ "int32_t", "videoid", "0" ],
+                [ "int32_t", "contenttype", "0" ],
+                [ "string", "nickname" ],
+                [ "int32_t", "polltime", "0" ],
+                [ "int32_t", "isR", "0" ]
+            ]
+        },
+        {
+            "type": "RRtcLayoutInfo_t",
+            "members": [
+                [ "string", "op" ],
+                [ "bool", "isCurrentDisplay", "false" ],
+                [ "int32_t", "displayid", "0" ],
+                [ "string", "toSet", "" ],
+                [ "int32_t", "layouttype", "0" ],
+                [ "[RRtcLayoutInfoRect_t]", "rectList" ]
+            ]
+        },
+        {
+            "type": "RRtcLayoutInfos_t",
+            "members": [
+                [ "[RRtcLayoutInfo_t]", "layoutInfos" ]
+            ]
+        },
+        {
+            "type": "RRtcGetLayoutInfos_t",
+            "members": [
+                [ "string", "layouttypes", "" ]
+            ]
+        },
+        {
+            "type": "RRtcConferenctMode_t",
+            "members": [
+                [ "string", "op", "" ],
+                [ "int32_t", "confmode", "0" ]
+            ]
+        },
+        {
+            "type": "RRtcConfModeResult_t",
+            "members": [
+                [ "string", "op", "" ],
+                [ "bool", "status", "false" ],
+                [ "int32_t", "confmode", "0" ],
+                [ "string", "msg", "" ]
+            ]
+        },
+        {
+            "type": "RRtcPadScreenInfo_t",
+            "members": [
+                [ "int32_t", "level", "0" ],
+                [ "string", "name", "" ]
+            ]
+        },
+        {
+            "type": "RRtcPadScreenInfos_t",
+            "members": [
+                [ "[RRtcPadScreenInfo_t]", "screens" ]
+            ]
+        },
+        {
+            "type": "RRtcLockConf_t",
+            "members": [
+                [ "string", "op", "" ],
+                [ "string", "confid", "" ]
+            ]
+        },
+        {
+            "type": "RRtcLockConfResult_t",
+            "members": [
+                [ "string", "op", "" ],
+                [ "bool", "status", "false" ],
+                [ "string", "confid ", "0" ],
+                [ "string", "msg", "" ],
+                [ "bool", "locked ", "false" ]
+            ]
+        },
+        {
+            "type": "RRtcScreenInfo_t",
+            "members": [
+                [ "int32_t", "displayID", "-1" ],
+                [ "string", "screenName ", "" ],
+                [ "RRect_t", "rect" ],
+                [ "int32_t", "mode ", "-1" ]
+            ]
+        },
+        {
+            "type": "RRtcScreenInfos_t",
+            "members": [
+                [ "[RRtcScreenInfo_t]", "screenInfos" ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+{
+    "headers":[
+        {"header":"core/rsize.h"},
+        {"header":"core/rrectf.h"},
+		{"header":"core/rcolor.h"}
+    ],
+    "structs": [
+        {
+            "type": "RMargin_t",
+            "members": [
+                [ "int32_t", "leftmargin", "0" ],
+                [ "int32_t", "rightmargin", "0" ],
+                [ "int32_t", "topmargin", "0" ],
+                [ "int32_t", "bottommargin", "0" ],
+                [ "int32_t", "spacing", "0" ]
+            ]
+        },
+        {
+            "type": "RPoll_t",
+            "members": [
+                [ "int32_t", "duration", "120000" ],
+                [ "int32_t", "algorithm", "0" ]
+            ]
+        },
+        {
+            "type": "RRenderLine_t",
+            "members": [
+                [ "bool", "visible", "true" ],
+                [ "int32_t", "width", "1" ],
+                [ "RColor_t", "color" ]
+            ]
+        },
+        {
+            "type": "RRenderNickname_t",
+            "members": [
+                [ "bool", "visible", "true" ],
+                [ "string", "font", "" ],
+                [ "RColor_t", "fontColor" ]
+            ]
+        },
+        {
+            "type": "RMuteImage_t",
+            "members": [
+                [ "bool", "visible", "true" ],
+                [ "RSize_t", "size" ]
+            ]
+        },
+        {
+            "type": "RRender_t",
+            "members": [
+                [ "RRenderNickname_t", "nickname" ],
+                [ "RRenderLine_t", "outline" ],
+                [ "RRenderLine_t", "speaker" ],
+                [ "RRenderLine_t", "focus" ],
+                [ "RRenderLine_t", "share" ],
+                [ "RMuteImage_t", "muteImge" ],
+                [ "bool", "bindErrorLineVisible", "false" ]
+            ]
+        },
+        {
+            "type": "RLayoutItem_t",
+            "members": [
+                [ "int32_t", "index", "0" ],
+                [ "RRectF_t", "rect" ],
+                [ "int32_t", "zorder", "0" ],
+                [ "int32_t", "priority", "0" ],
+                [ "bool", "isBig", "false" ],
+                [ "int32_t", "rectState", "5" ]
+            ]
+        },
+        {
+            "type": "RLayoutConfig_t",
+            "members": [
+                [ "RMargin_t", "margin" ],
+                [ "RSize_t", "selectStream" ],
+                [ "RPoll_t", "poll" ],
+                [ "RLayoutItem_t", "lecture" ],
+                [ "RRender_t", "renderMark" ],
+                [ "int32_t", "rectState", "5" ]
+            ]
+        },
+        {
+            "type": "RLayoutMode_t",
+            "members": [
+                [ "[int32_t]", "layoutStyle" ],
+                [ "RLayoutItem_t", "lecture" ],
+                [ "RLayoutConfig_t", "layoutConfig" ],
+                [ "[RLayoutItem_t]", "itemList" ],
+                [ "[int32_t]", "zorderList" ]
+            ]
+        },
+        {
+            "type": "RLayoutModeList_t",
+            "members": [
+                [ "[RLayoutMode_t]", "layoutModeList" ]
+            ]
+        }
+    ]
+}

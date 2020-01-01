@@ -1,0 +1,26 @@
+{
+  "structs": 
+  [
+    {
+      "type":"RSingleValue_Int_t",
+      "members":
+      [
+        ["int32_t","value","0"]
+      ]
+    },
+    {
+      "type":"RSingleValue_string_t",
+      "members":
+      [
+          ["string","value"]
+      ]
+    },
+    {
+      "type":"RSingleValue_Bool_t",
+      "members":
+      [
+          ["bool","value","false"]
+      ]
+    }
+  ]
+}

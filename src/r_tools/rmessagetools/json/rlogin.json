@@ -1,0 +1,92 @@
+{
+    "structs": [
+        {
+            "type": "RLoginCheckVersionReq_t",
+            "members": [
+                [ "string", "address", "" ],
+                [ "string", "proxyaddress", "" ],
+                [ "string", "company", "" ]
+            ]
+        },
+        {
+            "type": "RLoginCheckVersionRsp_t",
+            "members": [
+                [ "string", "code", "" ],
+                [ "string", "version", "" ],
+                [ "string", "domain", "" ]
+            ]
+        },
+        {
+            "type": "RLoginUpdateConfigReq_t",
+            "members": [
+
+                [ "string", "address", "" ],
+                [ "string", "version", "" ],
+                [ "bool", "forceupdateconfig", "0" ]
+            ]
+        },
+        {
+            "type": "RLoginUpdateConfigRsp_t",
+            "members": [
+                [ "bool", "bSucceed", "0" ],
+                [ "string", "pathurl", "" ],
+                [ "bool", "forceupdateconfig", "0" ]
+            ]
+        },
+        {
+            "type": "RLoginDownLoadConfigReq_t",
+            "members": [
+                [ "string", "url", "" ],
+                [ "string", "filepath", "" ],
+                [ "string", "filename", "" ]
+            ]
+        },
+        {
+            "type": "RLoginReq_t",
+            "members": [
+                [ "string", "account", "" ],
+                [ "string", "password", "" ],
+                [ "string", "secretKey", "" ],
+                [ "string", "appid", "" ],
+                [ "string", "wsserver", "" ],
+                [ "string", "corporationcode", "" ]
+            ]
+        },
+        {
+            "type": "RLoginRsp_t",
+            "members": [
+                [ "string", "code", "" ],
+                [ "string", "des", "" ],
+                [ "string", "account", "" ],
+                [ "string", "phone", "" ],
+                [ "string", "email", "" ],
+                [ "string", "suid", "" ],
+                [ "string", "token", "" ],
+                [ "string", "server", "" ],
+                [ "string", "nickname", "" ],
+                [ "string", "timestamp", "" ]
+            ]
+        },
+        {
+            "type": "RRtcLoginUserData_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "secretkey", "" ],
+                [ "string", "account", "" ],
+                [ "string", "companyid", "" ],
+                [ "string", "email", "" ],
+                [ "string", "exclusiveconf", "" ],
+                [ "string", "nickname", "" ],
+                [ "string", "phone", "" ],
+                [ "[string]", "stserver" ],
+                [ "int32_t", "suid", "0" ],
+                [ "string", "token", "" ],
+                [ "string", "version", "" ],
+                [ "string", "serveraddress", "" ],
+                [ "string", "proxyaddress", "" ],
+                [ "string", "useaddress", "" ],
+                [ "string", "type", "" ]
+            ]
+        }
+    ]
+}

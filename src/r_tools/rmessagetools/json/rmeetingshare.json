@@ -1,0 +1,26 @@
+{
+    "structs": [
+         {
+            "type": "SRConfigureDualVideo_t",
+            "members": [
+                [ "int32_t", "avtype", "1" ],
+                [ "int32_t", "sharedaudio", "0" ]
+            ]
+        },
+        {
+            "type": "RMeetingShareReq_t",
+            "members": [
+                [ "int32_t", "mode", "1" ],
+                [ "string", "screenname", "" ],
+                [ "SRConfigureDualVideo_t", "configure"]
+            ]
+        },
+        {
+            "type": "ROtherTermShare_t",
+            "members": [
+                [ "int32_t", "termId", "0" ],
+                [ "SRConfigureDualVideo_t", "configure"]
+            ]
+        }
+    ]
+}

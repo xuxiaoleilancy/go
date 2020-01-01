@@ -1,0 +1,10 @@
+{
+    "structs": [
+        {
+            "type": "RHomePageReq_t",
+            "members": [
+                [ "bool", "bClearPwd", "0" ]
+            ]
+        }
+    ]
+}

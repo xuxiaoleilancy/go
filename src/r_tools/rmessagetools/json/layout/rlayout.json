@@ -1,0 +1,136 @@
+{
+    "headers":[
+        {"header":"../core/rrect.h"},
+        {"header":"../core/rrectf.h"}
+    ],
+    "structs": [
+        {
+            "type": "RLayoutRect_t",
+            "members": [
+                [ "int32_t", "rectid", "-1" ],
+                [ "RRectF_t", "rectF" ],
+                [ "RRect_t", "rect" ]
+            ]
+        },
+        {
+            "type": "RLayout_t",
+            "members": [
+                [ "int32_t", "modeid", "-1" ],
+                [ "int32_t", "pri", "0" ],
+                [ "RRect_t", "geo" ],
+				[ "int32_t", "layoutstyle" ],
+                [ "[RLayoutRect_t]", "rects" ]
+            ]
+        },
+        {
+            "type":"RLayouts_t",
+            "members":
+            [
+                ["[RLayout_t]", "layouts"]
+            ]
+        },
+        {
+            "type": "RLayoutRectOptions_t",
+            "members": 
+			[
+                [ "int32_t", "rectid", "-1" ],
+				[ "int32_t", "recttype", "-1" ],
+				[ "int32_t", "isR", "0" ],
+				[ "int32_t", "contenttype", "0" ],
+				[ "int32_t", "termid", "0" ],
+				[ "int32_t", "videoid", "0" ],
+				[ "string", "nickname", ""],
+				[ "int32_t", "audio_option" ,"0"],
+				[ "int32_t", "video_option","0" ]
+            ]
+        },
+		{
+            "type": "RLayoutOptions_t",
+            "members": 
+			[
+				[ "int32_t", "modeid", "0" ],
+				[ "int32_t", "layoutstyle" ],
+				[ "string", "toSet", "" ],
+				[ "int32_t", "speaker_rectid", "-1" ],
+				[ "int32_t", "share_rectid", "-1" ],
+				[ "int32_t", "lock_rectid", "-1" ],
+				[ "[int32_t]", "local_rectids"],
+				[ "[RLayoutRectOptions_t]", "rects"]
+            ]
+        },
+		{
+            "type": "RLayoutOptionsList_t",
+            "members": 
+			[	
+                [ "[RLayoutOptions_t]", "layouts" ]
+            ]
+        },
+		{
+			"type":"RLayoutFilterInfo_t",
+			"members":
+			[
+				["bool", "isfilterNoVideo", "false"]
+			]
+		},
+		{
+            "type": "RTranNetScreenOptions_t",
+            "members": 
+			[
+                [ "string", "ip", "" ],
+				[ "int32_t", "videotype", "0" ]
+            ]
+        },
+		{
+            "type": "RTermVideoOptions_t",
+            "members": 
+			[
+                [ "int32_t", "termid", "-1" ],
+				[ "int32_t", "videoid", "0" ]
+            ]
+        },
+		{
+            "type": "RSelectOptions_t",
+            "members": 
+			[
+				 [ "RTermVideoOptions_t", "termsrcid" ],
+				[ "int32_t", "videotype", "0" ],
+				[ "bool", "isDelay", "false" ],
+				[ "RTermVideoOptions_t", "replaceid"]
+            ]
+        },
+		{
+            "type": "RSDKTransOptions_t",
+            "members": 
+			[
+				[ "int32_t", "termid", "-1" ],
+				[ "int32_t", "videoid", "-1" ],
+				[ "[RTranNetScreenOptions_t]", "trans_options"]
+            ]
+        },
+		{
+            "type": "RSelectStreamOptions_t",
+            "members": 
+			[
+				[ "int32_t", "uid", "-1"],
+				[ "string", "ip", ""],
+				[ "[RSelectOptions_t]", "ext_params"],
+				[ "[RSDKTransOptions_t]", "trans_params"],
+				[ "[RSDKTransOptions_t]", "all_trans"]
+            ]
+        },
+		{
+            "type": "RSelectStreams_t",
+            "members": 
+			[
+				[ "[RSelectStreamOptions_t]", "params"]
+            ]
+        },
+		{
+            "type": "RTermVideos_t",
+            "members": 
+			[
+                [ "[RTermVideoOptions_t]", "terms"]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "structs": [
+         {
+            "type": "RCmdItem_t",
+            "members": [
+                [ "int32_t", "id", "0"],
+                [ "string", "longName" ],
+				[ "string", "shortName"],
+				[ "string", "description"]
+            ]
+        },
+        {
+            "type": "RCmdParam_t",
+            "members": [
+				[ "int32_t", "type", "0" ],
+                ["[RCmdItem_t]","itemList"]
+            ]
+        },
+		{
+            "type": "RCmdParams_t",
+            "members": [
+                ["[RCmdParam_t]","cmdLists"]
+            ]
+        }
+    ]
+}

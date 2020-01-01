@@ -1,0 +1,210 @@
+{
+    "headers": [
+        { "header": "rrtcrestful.h" },
+		{ "header": "../rrtcVideoItemJsonStruct.h" },
+		{ "header": "../core/rpoint.h" },
+		{ "header": "../core/rsize.h" }
+    ],
+    "structs": [
+        {
+            "type": "RRosterGroupOptions_t", 
+            "members": [
+                [ "string", "total", "" ] 
+            ]
+        },
+        {
+            "type": "RRosterGroup_t", 
+            "members": [
+                [ "string", "groupId", "-1" ], 
+                [ "string", "pid", "-1" ], 
+                [ "string", "name", "" ],
+				[ "int", "visibility", -1 ],
+				[ "int", "status", -1 ],
+			    ["string", "timestamp", ""]				
+            ]
+        },
+		{
+            "type": "RGroupList_t", 
+            "members": [
+               [ "[RRosterGroup_t]", "group_list"]
+            ]
+        },
+        {
+            "type": "RRosterMemberOptions_t", 
+            "members": [
+                [ "string", "name", "" ],
+				[ "string", "account", "" ],				
+                [ "string", "type", "" ], 
+                [ "string", "phone", "" ], 
+                [ "string", "email" ], 
+                [ "string", "sculptureUrl", "" ], 
+                [ "string", "createdata", "" ], 
+                [ "string", "currentPage", "" ],
+				[ "int", "visibility", -1 ],
+				[ "int", "status", -1 ]	
+            ]
+        },
+        {
+            "type": "RRosterMember_t", 
+            "members": [ 
+                [ "string", "member_id", "" ], 
+                [ "RRosterMemberOptions_t", "options" ], 
+                [ "[RRosterGroup_t]", "groups" ],
+				["string", "timestamp", ""]				
+            ]
+        },
+        {
+            "type": "RMemberList_t",
+            "members": [
+                [ "[RRosterMember_t]", "member_list" ],
+                [ "int", "total", 0 ],
+                [ "int", "currentPage", 1 ]
+            ]
+        },
+        {
+            "type": "RRosterGroupMembers_t", 
+            "members": [
+                [ "RRosterGroup_t", "group" ], 
+                [ "RRosterGroupOptions_t", "group_options" ], 
+                [ "[RRosterMember_t]", "members" ] 
+            ]
+        },
+        {
+            "type": "RRosterOptions_t", 
+            "members": [
+                [ "string", "roster_id", "" ], 
+                [ "string", "roster_name", "" ] 
+            ]
+        },
+		{
+            "type": "RRosterList_t", 
+            "members": [
+                ["[RRosterOptions_t]", "roster_list" ]
+            ]
+        },
+        {
+            "type": "RRoster_t", 
+            "members": [
+                [ "RRosterOptions_t", "roster_options" ], 
+                [ "[RRosterGroup_t]", "groups" ], 
+                [ "[RRosterMember_t]", "members" ] 
+            ]
+        },
+        {
+            "type": "RRosters_t",
+            "members": [
+                [ "[RRoster_t]", "rosters" ],
+				[ "int", "currentUserId", 0 ]				
+            ]
+        },
+        {
+            "type": "RRostersUIOptions_t",
+            "members": [
+                [ "string", "currentPage", "" ], 
+                [ "string", "pageSize", "" ] 
+            ]
+        },
+        {
+            "type": "RRosters_Request_t", 
+            "members": [
+                [ "RRestfulRequestHead_t", "head" ],
+                [ "int", "request_type", 0 ] 
+            ]
+        },
+        {
+            "type": "RRosters_Response_t", 
+            "members": [
+                [ "RRosters_t", "rosters" ] 
+            ]
+        },
+        {
+            "type": "RRosterItem_Request_t", 
+            "members": [
+                [ "RRestfulRequestHead_t", "head" ],
+                [ "string", "roster_id" ], 
+                [ "int", "request_type", 0 ], 
+                [ "RRostersUIOptions_t", "ui_Options" ] 
+            ]
+        },
+        {
+            "type": "RRosterItem_Response_t", 
+            "members": [
+                [ "RRoster_t", "roster" ] 
+            ]
+        },
+        {
+            "type": "RRosterGroupItem_Request_t", 
+            "members": [
+                [ "RRestfulRequestHead_t", "head" ],
+                [ "string", "roster_id" ], 
+                [ "string", "groupid" ], 
+                [ "int", "request_type", 0 ],
+				["string", "timestamp_group", ""],
+				["string", "timestamp_member", ""],
+				[ "RRostersUIOptions_t", "ui_Options" ] 
+            ]
+        },
+		{
+            "type": "RRosterDev_Request_t", 
+            "members": [
+                [ "[RRosterGroupItem_Request_t]", "roser_dev_requst" ]
+            ]
+        },
+        {
+            "type": "RRosterGroupItem_Response_t", 
+            "members": [
+                [ "RRosterGroupMembers_t", "members" ] 
+            ]
+        },
+        {
+            "type": "RRosterMember_Request_t", 
+            "members": [
+                [ "RRestfulRequestHead_t", "head" ],
+                [ "string", "roster_id" ], 
+                [ "string", "group_id" ], 
+                [ "string", "member_id" ], 
+                [ "int", "request_type", 0 ],
+				[ "RRostersUIOptions_t", "ui_Options" ] 
+            ]
+        },
+        {
+            "type": "RRosterGroupMember_Response_t", 
+            "members": [
+				[ "RRtcRestfulResult_t", "result" ],
+                [ "RRosterMember_t", "member" ] 
+            ]
+        },
+		{
+            "type": "RInvitationUiOption_t",
+            "members": [
+				[ "int32_t", "callinvitation" ],
+				[ "int32_t", "parorter" ],
+				[ "RPoint_t", "rpoint" ],
+				[ "RSize_t", "rsize" ],
+				[ "bool", "invisible" ]
+            ]
+		},
+		{
+            "type": "RParticipantstype_t",
+            "members": [
+                [ "RParticipants_t", "rparticipants_t" ],
+				[ "RInvitationUiOption_t", "invitationuioption_t" ]
+            ]
+		},
+		{
+            "type": "RMemberListtype_t",
+            "members": [
+                [ "RMemberList_t", "rmemberlist_t" ],
+				[ "RInvitationUiOption_t", "invitationuioption_t" ]
+            ]
+		},
+		{
+            "type": "RTerminalsInvite_t", 
+            "members": [
+                [ "RMemberListtype_t", "memberlist_t" ],
+                [ "string", "invite_type", "" ],
+				[ "bool", "isCallOnLine", "false" ]
+            ]
+        }
+    ]
+}

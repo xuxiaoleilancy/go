@@ -1,0 +1,11 @@
+{
+    "structs": [
+        {
+            "type": "RSize_t",
+            "members": [
+                [ "int32_t", "w", "0" ],
+                [ "int32_t", "h", "0" ]
+            ]
+        }
+    ]
+}

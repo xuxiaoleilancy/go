@@ -1,0 +1,19 @@
+{
+    "structs": [
+        {
+            "type": "RCustomOptions_t",
+            "members": [
+                [ "string", "custom_option1", "" ],
+                [ "string", "custom_option2", "" ],
+                [ "string", "custom_option3", "" ],
+                [ "string", "custom_option4", "" ],
+                [ "string", "custom_option5", "" ],
+                [ "string", "custom_option6", "" ],
+                [ "string", "custom_option7", "" ],
+                [ "string", "custom_option8", "" ],
+                [ "string", "custom_option9", "" ],
+                [ "string", "custom_option10", "" ]
+            ]
+        }
+    ]
+}

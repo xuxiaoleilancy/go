@@ -1,0 +1,73 @@
+{
+    "headers":[
+        {"header":"rrtcrestful.h"}
+    ],
+    "structs": [
+        {
+            "type": "RLiveOptions_t",
+            "members": [
+                [ "string", "chairman" ],
+                [ "string", "subject" ],
+                [ "string", "digest" ],
+                [ "int32_t", "isPublic", "0" ],
+                [ "string", "livePwd" ],
+                [ "string", "startTime", "" ],
+                [ "string", "synopsis", "" ],
+                [ "string", "watchRelatedAddr", "" ],
+                [ "string", "watchAddr", "" ],
+                [ "string", "confId", "" ],
+                [ "int32_t", "isuserec" ],
+				[ "string", "serviceType"],
+				[ "string", "liveId"],
+				[ "string", "streamAddr"],
+				[ "string", "thirdConfId"]
+            ]
+        },
+        {
+            "type": "RLiveInfo_t",
+            "members": [
+                [ "int32_t", "livestate", "0" ],
+                [ "string", "failreason" ],
+                [ "string", "liveplayurl" ],
+                [ "RLiveOptions_t", "livesetinfo" ]
+            ]
+        },
+        {
+            "type": "RLivesRequest_t",
+            "members": [
+                [ "RRestfulRequestHead_t", "head" ],
+                [ "bool", "isUpdate", "true" ],
+                [ "int", "currentPos", "0" ],
+                [ "int", "pageCount", "0" ]
+            ]
+        },
+        {
+            "type": "RLives_t",                     
+            "members": [
+            	["int",    "totalCount", "0"],        
+                ["[RLiveOptions_t]", "liveList"]
+            ]
+        },
+        {
+            "type": "RConferenceLive_t",
+            "members": [
+                [ "bool", "isstart", "false" ],
+                [ "string", "subject", "" ],
+                [ "string", "digest", "" ],
+                [ "string", "chairmanid", "" ],
+                [ "int32_t", "ispublic", "0" ],
+                [ "string", "livepwd", "" ],
+                [ "int32_t", "isuserec", "0" ]
+            ]
+        },
+		{
+            "type": "RUboxMainScreenRect_t",                     
+            "members": [
+            	["int",    "posX", "0"],        
+                ["int",    "posY", "0"],
+				["int",    "width", "0"],
+				["int",    "height", "0"]
+            ]
+        }
+    ]
+}

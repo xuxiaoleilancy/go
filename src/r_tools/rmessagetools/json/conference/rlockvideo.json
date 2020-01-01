@@ -1,0 +1,19 @@
+{
+    "structs": [
+        {
+            "type": "RLockVideoOptions_t",
+            "members": [
+                [ "int32_t", "termid", "0" ],
+                [ "[int32_t]", "videoids" ],
+                [ "bool", "islock", "false" ]
+
+            ]
+        },
+		{
+            "type": "RLockVideo_t",
+            "members": [
+                [ "[RLockVideoOptions_t]", "lock_videos" ]
+            ]
+        }
+    ]
+}

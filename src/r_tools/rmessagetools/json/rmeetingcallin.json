@@ -1,0 +1,20 @@
+{
+    "headers":[
+        {"header":"rmeeting.h"}
+    ],
+    "structs": [
+        {
+            "type": "RCallIn_Request_t",
+            "members": [
+                [ "RJoinMeetingReq_t", "callin_joinmeeting_ifon" ],
+                [ "string", "invitednickname", "" ]
+            ]
+        },
+        {
+            "type": "ROptionCallIn_Request_t",
+            "members": [
+                [ "RJoinMeetingReq_t", "joinmeeting_option_t" ]
+            ]
+        }
+    ]
+}

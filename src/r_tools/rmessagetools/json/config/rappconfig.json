@@ -1,0 +1,110 @@
+{
+    "structs": [
+        {
+            "type": "RModuleOptions_t",
+            "members": [
+                [ "{string}", "options"]
+            ]
+        },
+        {
+            "type": "RAppConfigModule_t",
+            "members": [
+                ["string", "name", "" ],
+                [ "string", "type", "" ],
+                ["RModuleOptions_t", "options"],
+                ["{RAppConfigModule_t}", "child"]
+            ]
+        },
+        {
+            "type": "RAppConfigGroup_t",
+            "members": [
+                [ "{RAppConfigModule_t}", "modules"]
+            ]
+        },
+        {
+            "type": "RAppConfigGroups_t",
+            "members": [
+                [ "{RAppConfigGroup_t}", "groups"]
+            ]
+        },
+
+        {
+            "type": "RAppConfigGroup_Request_t",
+            "members": [
+                [ "string", "parent_name", "" ],
+                [ "string", "group_name", "" ]
+            ]
+        },
+        {
+            "type": "RAppConfigModules_Request_t",
+            "members": [
+                [ "string", "parent_name", "" ],
+                [ "string", "group_name", "" ]
+            ]
+        },
+        {
+            "type": "RAppConfigModule_Request_t",
+            "members": [
+                [ "string", "parent_name", "" ],
+                [ "string", "group_name", "" ],
+                [ "string", "module_name", "" ]
+            ]
+        },
+        {
+            "type": "RAppConfigModuleProps_Request_t",
+            "members": [
+                [ "string", "parent_name", "" ],
+                [ "string", "group_name", "" ],
+                [ "string", "module_name", "" ],
+                ["RModuleOptions_t", "props"]
+            ]
+        },
+        {
+            "type": "RAppConfigModuleProp_Request_t",
+            "members": [
+                [ "string", "parent_name", "" ],
+                [ "string", "group_name", "" ],
+                [ "string", "module_name", "" ],
+                [ "string", "prop_name", "" ],
+                [ "string", "prop_value", "" ]
+            ]
+        },
+
+        {
+            "type": "RAppConfigGroups_Response_t",
+            "members": [
+                [ "{RAppConfigGroup_t}", "groups"]
+            ]
+        },
+        {
+            "type": "RAppConfigGroup_Response_t",
+            "members": [
+                [ "RAppConfigGroup_t", "group"]
+            ]
+        },
+        {
+            "type": "RAppConfigModules_Response_t",
+            "members": [
+                [ "{RAppConfigModule_t}", "modules"]
+            ]
+        },
+        {
+            "type": "RAppConfigModule_Response_t",
+            "members": [
+                [ "RAppConfigModule_t", "module"]
+            ]
+        },
+        {
+            "type": "RAppConfigModuleProps_Response_t",
+            "members": [
+                [ "RModuleOptions_t", "props"]
+            ]
+        },
+        {
+            "type": "RAppConfigModuleProp_Response_t",
+            "members": [
+                [ "string", "prop"]
+            ]
+        }
+    ]
+}

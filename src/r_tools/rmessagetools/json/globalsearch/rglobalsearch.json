@@ -1,0 +1,12 @@
+{
+    "structs": [
+        {
+            "type": "RGlobalSearchItemOptions_t",
+            "members": [
+                [ "string", "group", "" ],
+                [ "string", "uniqueid", "" ],
+                [ "string", "parentid", "" ]
+            ]
+        }
+    ]
+}

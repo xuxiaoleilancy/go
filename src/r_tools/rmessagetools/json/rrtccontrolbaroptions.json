@@ -1,0 +1,23 @@
+{
+    "structs": [
+        {
+            "type": "RExistBtnOptions_t",
+            "members": [
+                [ "string", "text", "end" ],
+                [ "string", "normalImg", "start_end_normal.png" ],
+                [ "string", "hoverImg", "start_end_hover.png" ],
+                [ "bool", "isExistMeet", "true" ],
+				[ "bool", "isFileTransfer", "false" ],
+                [ "bool", "isVisible", "true" ]
+            ]
+        },
+	    {
+            "type":"RContrlBarOption_t",
+            "members":
+            [
+		        ["RExistBtnOptions_t", "existBtn"]
+		    ]
+        }
+    ]
+
+}

@@ -1,0 +1,100 @@
+{
+    "structs": [
+		{
+            "type": "REncodeOptions_t",
+            "members": [
+                [ "int32_t", "width", "1280" ],
+                [ "int32_t", "height", "720" ],
+				[ "int32_t", "resolution", "720" ],
+                [ "int32_t", "fps", "30" ]
+            ]
+        },
+        {
+            "type": "RSendAudioStream_t",
+            "members": [
+                [ "string", "codecname", "" ],
+                [ "int32_t", "samplerate", "0" ],
+                [ "int32_t", "bitrate", "0" ]
+            ]
+        },
+        {
+            "type": "RRecvAudioStream_t",
+            "members": [
+                [ "int32_t", "id", "0" ],
+                [ "string", "codecname", "" ],
+                [ "int32_t", "samplerate", "0" ],
+                [ "int32_t", "bitrate", "0" ],
+                [ "int32_t", "reccodecchs", "0" ],
+				[ "double", "relaymc_info" ],
+                [ "int32_t", "loserate", "0" ]
+            ]
+        },
+        {
+            "type": "RSendVideoCaptureStream_t",
+            "members": [
+                [ "int32_t", "maxFPS", "0" ],
+                [ "int32_t", "width", "0" ],
+                [ "int32_t", "height", "0" ],
+                [ "int32_t", "expectedCaptureDelay", "0" ],
+                [ "string", "rawType", "" ],
+                [ "string", "codecType", "" ],
+                [ "bool", "interlaced" ]
+            ]
+        },
+		{
+            "type": "RSendVideoStream_t",
+            "members": [
+                [ "int32_t", "bitrate", "0" ],
+                [ "REncodeOptions_t", "encode_options"]
+            ]
+        },
+        {
+            "type": "RRecvVideoStream_t",
+            "members": [
+                [ "int32_t", "id", "0" ],
+                [ "string", "codecname", "" ],
+                [ "int32_t", "fps", "0" ],
+                [ "int32_t", "bitrate", "0" ],
+                [ "int32_t", "width", "0" ],
+                [ "int32_t", "height", "0" ],
+                [ "int32_t", "loserate", "0" ]
+            ]
+        },
+        {
+            "type": "RSendStream_t",
+            "members": [
+                [ "RSendAudioStream_t", "audio" ],
+                [ "string", "videocodecname", "" ],
+                [ "RSendVideoStream_t", "littlevideo" ],
+                [ "RSendVideoStream_t", "middlevideo" ],
+                [ "RSendVideoStream_t", "highvideo" ],
+                [ "RSendVideoCaptureStream_t", "capturevideo" ],
+                [ "string", "h239codecname", "" ],
+                [ "RSendVideoStream_t", "h239video" ],
+                [ "int32_t", "up_qos_kbps", "0" ],
+                [ "int32_t", "network_upload_status", "0" ] 
+
+            ]
+        },
+        {
+            "type": "RRecvStream_t",
+            "members": [
+                [ "[RRecvAudioStream_t]", "audiostream" ],
+                [ "[RRecvVideoStream_t]", "videostream" ],
+                [ "RRecvVideoStream_t", "h239stream" ],
+                [ "int32_t", "down_qos_kbps" ],
+                [ "int32_t", "network_download_status" ]
+            ]
+        },      
+        {
+            "type": "REncodeParameter_t",
+            "members": [
+                [ "REncodeOptions_t", "collectParam" ],
+                [ "REncodeOptions_t", "encodeParam" ],
+                [ "int32_t", "encodeHighStartBitrate", "1500" ],
+                [ "int32_t", "encodeHighMinBitrate", "50" ],
+                [ "int32_t", "encodeHighMaxBitrate", "3500" ]
+            ]
+        }
+    ]
+}

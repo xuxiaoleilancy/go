@@ -1,0 +1,82 @@
+{
+    "headers":[
+        {"header":"core/rrect.h"},
+        {"header":"core/rcustomoptions.h"}
+    ],
+    "structs": [
+        {
+            "type": "RResolution_t",
+            "members": [
+                [ "int", "width",0], 
+                [ "int","height",0] 
+            ]
+        },
+       {
+            "type": "ExtenderInfo_t",
+            "members": [
+                [ "bool", "isinmeeting","false"],
+				[ "bool", "isinwaitgroup","false"], 
+                [ "string","version",""] 
+            ]
+        },
+        {
+          "type": "RExtenderAbility_t",
+          "members": [
+            [ "RResolution_t","decoding_resolution"],
+            [ "int32_t","decoding_num","1"] 
+          ]
+        },
+        {
+            "type": "RExtenderOptions_t",
+            "members": [
+                ["string","name",""],
+                [ "RResolution_t", "resolution" ],
+                [ "RExtenderAbility_t","max_ability"],
+                [ "RExtenderAbility_t","min_ability"]
+            ]
+        },
+        {
+            "type": "RExtenderInit_t",
+            "members": [
+                [ "string", "mac_addr", "" ],
+                [ "string", "ip", "" ],
+                [ "string", "session", "" ],
+                [ "string","uid",""],
+                [ "RExtenderOptions_t", "options" ]
+            ]
+        },
+        {
+           "type": "RInitOptions_t",                
+            "members": [
+                [ "string", "name", "" ],
+                [ "bool","is_hidden","true"],
+                [ "int32_t", "modeid", "-1" ]
+            ]
+
+        },
+        {
+          "type":"RExtenderInitCallback_t",
+          "members":[
+          	[ "int","uid",-1],
+          	["string","mac_addr",""],
+          	[ "RInitOptions_t", "options" ]
+          ]
+        },
+		{
+            "type": "RUId2ModeIdOptions_t",
+            "members": 
+			[
+                [ "int32_t", "uid", "-1" ],
+				[ "int32_t", "modeid", "-1" ]
+            ]
+        },
+		{
+            "type": "RUId2ModeIds_t",
+            "members": 
+			[
+                [ "[RUId2ModeIdOptions_t]", "uid2modeids"]
+            ]
+        }
+    ]
+}
+

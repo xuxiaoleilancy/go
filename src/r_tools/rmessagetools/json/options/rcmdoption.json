@@ -1,0 +1,55 @@
+{
+	"headers":[
+		{"header":"../rrtcrestful.h"}
+		
+    ],
+    "structs": [
+         {
+            "type": "RCmdFormatOptions_t",
+            "members": [
+                [ "int32_t", "type", "0" ],
+				[ "string", "description", "sr" ]
+            ]
+        },
+		{
+            "type": "RCmdFormats_t",
+            "members": [
+				[ "[RCmdFormatOptions_t]", "cmd_formats"]
+            ]
+        },
+        {
+            "type": "RCmdLoginData_t",
+            "members": [
+				[ "string", "domain" ],
+				[ "string", "account", ""],
+				[ "string", "password", ""],
+				[ "RRestfulRequestHead_t", "restful"]
+            ]
+        },
+		{
+            "type": "RCmdConfData_t",
+            "members": [
+				[ "string", "domain" ],
+				[ "RRestfulRequestHead_t", "restful"],
+				[ "string", "nickname" ],
+				[ "string", "suid", ""],
+				[ "string", "meetid"],
+				[ "string", "meet_pwd"]
+            ]
+        },
+        {
+            "type": "RCmd_t",
+            "members": [
+                [ "int32_t", "type", "0" ],
+				[ "string", "description", "" ],
+				[ "string", "data" ]
+            ]
+        },
+		{
+            "type": "RCmds_t",
+            "members": [
+                ["[RCmd_t]","cmds"]
+            ]
+        }
+    ]
+}

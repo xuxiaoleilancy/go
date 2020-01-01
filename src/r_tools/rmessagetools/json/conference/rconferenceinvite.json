@@ -1,0 +1,48 @@
+{
+    "structs": [
+        {
+            "type": "RConferenceInvite_t",
+            "members": [
+                [ "int32_t", "type", "1" ],
+                [ "string", "confrenceid", "" ],
+                [ "string", "conferencepwd", "" ],
+                [ "int32_t", "trmid", "0" ],
+                [ "string", "termname", "" ],
+                [ "int32_t", "suid", "0" ],
+                [ "int32_t", "devicetype", "0" ],
+                [ "string", "invitemcuconfrenceid", "" ],
+                [ "string", "invitemcuconferencepwd", "" ]
+            ]
+        },
+         {
+            "type": "RConferenceCallTermInfo_t",
+            "members": [
+                [ "int32_t", "protocoltype", "1" ],
+                [ "int32_t", "deviceType", "1" ],
+                [ "int32_t", "bandwidth", "0" ],
+                [ "string", "ip", "" ],
+                [ "string", "mcuconfrenceid", "" ],
+                [ "string", "mcuconferencepwd", "" ],
+                [ "string", "transport", "" ]
+                
+            ]
+        },
+        {
+            "type": "RConferenceCallInvite_t",
+            "members": [
+                [ "int32_t", "type", "1" ],
+                [ "string", "confrenceid", "" ],
+                [ "string", "trmid", "0" ],
+                [ "string", "termname", "" ],
+                [ "string", "companyId", "" ],
+                [ "int32_t", "suid", "0" ],
+                [ "int32_t", "devicetype", "0" ],
+                [ "string", "appid", "" ],
+                [ "string", "secrectkey", "" ],
+                [ "string", "token", "" ],
+                [ "RConferenceCallTermInfo_t", "calltermInfo" ]
+            ]
+        }
+       
+    ]
+}

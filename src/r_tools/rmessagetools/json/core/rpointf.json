@@ -1,0 +1,11 @@
+{
+    "structs": [
+        {
+            "type": "RPointF_t",
+            "members": [
+                [ "double", "x", "0.0" ],
+                [ "double", "y", "0.0" ]
+            ]
+        }
+    ]
+}

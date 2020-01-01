@@ -1,0 +1,34 @@
+{
+    "structs": [
+        {
+			"type": "RTermInfo_t",
+			"members": [
+			    [ "int32_t", "terminalid", "0" ],
+                [ "int32_t", "suid", "0" ],
+				[ "int32_t", "videoid", "0" ]
+			]
+		},
+		{
+            "type": "RContextMenu_t",
+            "members": [
+				[ "RTermInfo_t", "terminfo" ],
+				[ "bool", "isshowmute", "false" ],
+				[ "bool", "isshowunmute", "false" ],
+				[ "bool", "isshowrename", "false" ],
+				[ "bool", "isshowsetfocus", "false" ],
+				[ "bool", "isshowcancelfocus", "false" ],
+				[ "bool", "isshowsetlocalfocus", "false" ],
+				[ "bool", "isshowcancellocalfocus", "false" ],
+				[ "bool", "isshowsetmaster", "false" ],
+				[ "bool", "isshowremove", "false" ]
+            ]
+        },
+		{
+			"type": "RLocalFocusState_t",
+			"members": [
+			    [ "RTermInfo_t", "terminfo" ],
+                [ "bool", "bSelected", "false" ]
+			]
+		}
+    ]
+}

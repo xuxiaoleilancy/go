@@ -1,0 +1,17 @@
+{ 	
+    "structs": [
+        {
+            "type": "RAppCursorPos_t",
+            "members": [
+                [ "int", "x", 0],
+                [ "int", "y", 0]
+            ]
+        },
+		{
+            "type": "RAppMouseEvent_t",
+            "members": [
+                [ "RAppCursorPos_t", "cursorpos"]
+            ]
+        }
+    ]
+}

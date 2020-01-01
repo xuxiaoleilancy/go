@@ -1,0 +1,40 @@
+{
+    "headers": [
+        { "header": "rrtcrestful.h" }
+    ],
+    "structs": [
+		{
+            "type": "RScheduleMeetingTerminal_t",
+            "members": [
+                [ "string", "id", "" ],
+                [ "string", "name", "" ],
+                [ "int", "type", "-1" ],
+                [ "int", "terminalType", "-1" ]
+
+            ]
+        },
+        {
+            "type": "RScheduleMeetingTerminals_Request_t",
+            "members": [
+                [ "RRestfulRequestHead_t", "head" ],
+                [ "string", "currentPage" ],
+                [ "string", "pageSize" ]
+            ]
+        },
+		{
+            "type": "RScheduleMeetingTerminals_t",
+            "members": [
+                [ "[RScheduleMeetingTerminal_t]", "terminal" ]
+            ]
+        },
+        {
+            "type": "RScheduleMeetingTerminals_Response_t",
+            "members": [
+                [ "RScheduleMeetingTerminals_t", "terminals" ]
+            ]
+        }
+    ]
+}
+
+
+

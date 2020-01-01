@@ -1,0 +1,24 @@
+{
+    "structs": [
+        {
+            "type": "SubtitleInfo_t",
+            "members": [
+                [ "int32_t", "displaytime", "0" ],
+                [ "int32_t", "msgpos", "0" ],
+                [ "int32_t", "msgfontsize", "0" ],
+                [ "string", "msgcolor", "0" ],
+                [ "string", "msgbgcolor", "0" ],
+                [ "bool", "enableMsgBg", "0" ],
+		[ "bool","enablemsgroll","1"]
+
+            ]
+        },
+		 {
+            "type": "RSubtitle_t",
+            "members": [
+                [ "SubtitleInfo_t", "subtitle_info" ],
+                [ "string", "subtitlemsg" ]
+            ]
+        }
+    ]
+}

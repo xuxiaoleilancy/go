@@ -1,0 +1,47 @@
+{
+	"headers":[
+        {"header":"rconferencewhite.h"},
+		{"header":"rsubtitleinfo.h"},
+		{"header":"rrecordinfo.h"},
+		{"header":"rliveInfo.h"}
+    ],
+    "structs": [
+        {
+            "type": "RConfStatus_t",
+            "members": [
+                [ "int32_t", "confmode", "0" ],
+                [ "string", "confname", "0" ],
+                [ "[int32_t]", "participants" ],
+                [ "int32_t", "chairmansuid", "0" ],
+                [ "[int32_t]", "assistchairmans" ],
+                [ "int32_t", "duovideoterid", "0" ],
+                [ "int32_t", "stdterseeingstyle", "0" ],
+                [ "bool", "isduovideostart", "false" ],
+                [ "bool", "isconflocked", "false" ],
+                [ "bool", "isforcemute", "false" ],
+                [ "bool", "isdisplaytername", "false" ],
+                [ "bool", "issubtitlestart", "false" ],
+                [ "string", "subtitlemsg", "false" ],
+                [ "SubtitleInfo_t", "subtitle" ],
+                [ "bool", "iscallwaiting", "false"  ],
+                [ "RRecInfo_t", "recordinfo" ],
+				 [ "RLiveInfo_t", "liveinfo" ],
+                [ "[WhiteListInfo_t]", "whitelists" ],
+                [ "int32_t", "avtype", "1" ],
+                [ "int32_t", "sharedaudio", "0" ],
+				[ "int32_t", "activity", "0" ],
+                [ "bool", "allmute", "false" ],
+                [ "int32_t", "networkquality", "0" ],
+                [ "int32_t", "projectorState", "0" ],
+				[ "int32_t", "filternovideo", "0" ]
+            ]
+        },
+		{
+            "type": "OnRspConfStatus_t",
+            "members": [
+                [ "RConfStatus_t", "confstatus" ],
+                [ "RResult_t", "result" ]
+            ]
+        }
+    ]
+}

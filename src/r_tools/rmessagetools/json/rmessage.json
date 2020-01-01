@@ -1,0 +1,53 @@
+{
+
+    "structs": 
+    [
+        {
+            "type": "RJsonDemo_t",
+            "members": 
+            [
+                ["[int32_t]", "vec_val"],
+                ["{int}", "dict_val"]
+            ]
+        },
+        {
+            "type": "RMessageHeader_t",
+            "members": 
+            [
+                ["uint64_t", "id", "0"],
+                ["string", "sign", "rinvalidsign"],
+                ["string", "endpoint", "rinvalidendpoint"],
+                ["string", "to", "rinvalidto"],
+                [ "string", "from", "rinvalidfrom" ],
+                ["[string]","traces"],
+                [ "int32_t", "schema", "0" ],
+                ["int32_t", "action","0"]
+            ]
+        },
+        {
+            "type": "RMessageResult_t",
+            "members": 
+            [
+                ["uint32_t", "code", "0"],
+                ["string", "des", "rinvaliddes"]
+            ]
+        },
+        {
+            "type": "RMessage_t",
+            "members": 
+            [
+                ["RMessageHeader_t", "header"],
+                ["string", "data", "rinvaliddata"]
+            ]
+        },
+        {
+            "type": "RMessageResponse_t",
+            "members": 
+            [
+                ["RMessageHeader_t", "header"],
+                ["RMessageResult_t", "result"],
+                ["string", "data", "rinvaliddata"]
+            ]
+        }
+    ]
+}

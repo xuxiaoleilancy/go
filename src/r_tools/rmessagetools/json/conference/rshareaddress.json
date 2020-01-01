@@ -1,0 +1,23 @@
+{
+    "structs": [
+        {
+            "type": "RShareAddress_t",
+            "members": [
+                [ "string", "confId", "0" ],
+				[ "string", "pwd", "0" ],
+                [ "string", "netaddress", "0" ], 
+                ["string", "proxyaddress", "0"], 
+                ["string", "confcompanyid", "0"],
+                ["int32_t", "sharetype", "0"]
+
+            ]
+        },
+		 {
+            "type": "RShareAddresRequest_t",
+            "members": [
+                [ "string", "confId", "0" ],
+				[ "string", "pwd", "0" ]
+            ]
+        }
+    ]
+}

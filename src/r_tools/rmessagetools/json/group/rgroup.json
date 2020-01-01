@@ -1,0 +1,89 @@
+{
+	"headers":[
+		{"header":"result/rresult.h"}
+    ],
+    "structs": [
+        {
+            "type": "RGroupMeetingRoomInfo_t",
+            "members": [
+                [ "string", "confDomain" ],
+                [ "string", "confId" ],
+                [ "uint32_t", "groupId" ],
+                [ "uint32_t", "groupType" ],
+                [ "string", "groupName" ]
+            ]
+        },
+        {
+            "type": "RJoinGroupInfo_t",
+            "members": [
+                [ "int32_t", "stermid" ],
+                [ "RGroupMeetingRoomInfo_t", "groupInfo" ]
+            ]
+        },
+        {
+            "type": "RTermOnlyInfo_t",
+            "members": [
+                [ "uint32_t", "suid" ],
+                [ "string", "termName" ],
+                [ "string", "userDomain" ]
+            ]
+        },
+        {
+            "type": "RTermGroupInfo_t",
+            "members": [
+                [ "RTermOnlyInfo_t", "termInfo" ],
+                [ "RGroupMeetingRoomInfo_t", "userGroup" ]
+            ]
+        },
+        {
+            "type": "RGroupTermsInfo_t",
+            "members": [
+                [ "RGroupMeetingRoomInfo_t", "userGroup" ],
+                [ "[RTermOnlyInfo_t]", "termInfos" ]
+            ]
+
+        },
+        {
+            "type": "OnceMoveTermsInfo_t",
+            "members": [
+                [ "RGroupMeetingRoomInfo_t", "fromGroup" ],
+                [ "RGroupMeetingRoomInfo_t", "toGroup" ],
+                [ "[RTermOnlyInfo_t]", "terms" ]
+            ]
+
+        },
+        {
+            "type": "TermsChangeRoomInfo_t",
+            "members": [
+                [ "[OnceMoveTermsInfo_t]", "moveTerms" ]
+            ]
+        },
+        {
+            "type": "RemoveTermFromGroupInfo_t",
+            "members": [
+                [ "RGroupTermsInfo_t", "existGroup" ]
+            ]
+        },
+        {
+            "type": "ExitGroupInfo_t",
+            "members": [
+                [ "RTermGroupInfo_t", "exitTerm" ],
+                [ "string", "exitreason" ]
+            ]
+        },
+        {
+            "type": "RRspGetGroupList_t",
+            "members": [
+                [ "RResult_t", "result" ],
+                [ "[RGroupTermsInfo_t]", "groupList" ]
+            ]
+        },
+        {
+            "type": "GetGroupsInfo_t",
+            "members": [
+                [ "[RGroupMeetingRoomInfo_t]", "groups"]
+            ]
+        }
+    ]
+
+}

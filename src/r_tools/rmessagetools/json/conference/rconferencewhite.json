@@ -1,0 +1,11 @@
+{
+    "structs": [
+        {
+            "type": "WhiteListInfo_t",
+            "members": [
+                [ "int32_t", "whitelisttype", "0" ],
+                [ "[int32_t]", "terlists" ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+   "headers":[
+        {"header":"rrtcrestful.h"},
+		{"header":"rrtcVideoItemJsonStruct.h"},
+		{"header":"rinviteoption.h"}
+    ],
+	"structs": [
+	  {
+            "type": "RMTime_t",               
+            "members": [
+                [ "string", "starttime", "" ],
+                ["string", "createTime", ""],
+                ["string", "endTime", ""]
+            ]
+      },
+	  {
+            "type": "RMeetingOptions_t",             
+            "members": [
+                [ "string", "confName", "" ],
+                [ "string", "confId", "" ],
+				[ "string", "thirdConfId", "" ],
+                [ "int", "confType", "0" ],
+				[ "int", "meetingOwner", "0" ],
+                [ "string", "confPwd ", "" ],
+                [ "string", "chairman", "" ],
+				[ "string", "chairmanName", "" ],
+                [ "bool", "randomnum", "false" ],
+                [ "bool", "anonymous", "false" ],
+                [ "bool", "automute", "false" ],
+                [ "bool", "autoclosevideo", "false" ],
+                [ "bool", "autorecorde", "false" ],
+                [ "int", "meetingmode", "0" ],
+                [ "RInviteOptions_t", "msgType"],
+                [ "bool", "callwaiting", "false" ],
+                [ "bool", "hosterenteropenmeeting", "false" ]
+            ]
+        },
+        {
+            "type": "RMeetingOtherMessage_t",         
+            "members": [
+              ["string", "inviteCode", ""],
+              ["string", "suid", ""],
+              ["string", "nickname", ""],
+              ["string", "ctrlUserId", ""],
+              ["string", "ctrlPwd", ""],
+              ["int","confCategory","0"],
+              ["int","startType","0"],
+              ["int","maxTerm","0"],
+              [ "bool", "audioEnable", "false" ],
+              [ "bool", "videoEnable", "false" ],
+              [ "bool", "permanentEnable", "false" ],
+              [ "bool", "hasStarted", "true" ]
+            ]
+        },
+		{
+            "type": "RMeetingList_t", 
+            "members": [
+                [ "RMeetingOptions_t", "meetoption"],
+                [ "RMTime_t", "meetingtime" ],
+                [ "RMeetingOtherMessage_t", "othermessage" ]
+            ]
+        },
+		{
+            "type": "RMeetingListDetial_t",             
+            "members": [
+                [ "RMeetingList_t", "meetlist"],
+                [ "RParticipants_t", "termit"],
+                [ "RParticipants_t", "room"]
+            ]
+        },
+		{
+            "type": "RMeetingLists_t",                                               
+            "members": [
+                [ "[RMeetingList_t]", "meetlists" ]
+            ]
+        },
+		{
+           
+            "type": "RMeetListRequest_t",
+            "members": [
+                ["RRestfulRequestHead_t", "head" ],
+                ["string", "timestamp", ""],
+                ["string", "start", ""],           
+                ["string", "itemNumPerPage",""],          
+                ["string", "jsonp", ""]          
+            ]
+        },
+		{
+            "type": "ROperatorMettingListRequest_t", 
+            "members": [
+                ["RRestfulRequestHead_t", "head" ],
+                [ "RMeetingList_t", "data" ]
+            ]
+        },
+		{
+            "type": "RModeMettingListRequest_t",
+            "members": [
+                ["RRestfulRequestHead_t", "head" ],
+                [ "RMeetingListDetial_t", "data" ]
+            ]
+        },
+		{
+            "type": "RMeetListResponse_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "RMeetingLists_t", "data"]            
+            ]
+        },
+		{
+            "type": "RMeetListDetialResponse_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "RMeetingListDetial_t", "data"]            
+            ]
+        },
+		{
+            "type": "RRtcRestfulMeetListResponse_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "string", "confid",""]            
+            ]
+        }
+
+    ]
+}

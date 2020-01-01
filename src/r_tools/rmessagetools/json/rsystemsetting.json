@@ -1,0 +1,14 @@
+{
+    "structs": [
+        {
+            "type": "RUserInfo_t",
+            "members": [
+                ["string", "account", ""],
+				["string", "nickname", ""],
+				["string", "phone", ""],
+				["string", "email", ""],
+				["string", "reqaccount", ""]
+            ]
+        }
+    ]
+}

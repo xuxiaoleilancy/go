@@ -1,0 +1,36 @@
+{
+  "structs": 
+  [
+    {
+      "type":"RRect2TermId_t",
+      "members":
+      [
+        ["int32_t","rectId","0"],
+		["int32_t","termId","0"]
+      ]
+    },
+    {
+      "type":"RRect2Compare_t",
+      "members":
+      [
+        ["int32_t","rectId","0"],
+		["int32_t","compareFlag","0"]
+      ]
+    },
+    {
+        "type": "RRtcModeRenderBean_t",
+        "members": [
+            [ "int32_t", "mode", "0" ],
+            [ "[RRect2TermId_t]", "rect2TermId" ],
+            [ "[RRect2Compare_t]", "rect2Compare" ]
+        ]
+    },
+    {
+      "type":"RRtcRenderBeans_t",
+      "members":
+      [
+        ["[RRtcModeRenderBean_t]", "renderBeans"]
+      ]
+    }
+  ]
+}

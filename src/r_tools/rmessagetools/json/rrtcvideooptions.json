@@ -1,0 +1,34 @@
+{
+    "structs": [
+        {
+            "type": "RSelectVideoOptions_t",
+            "members": [
+                [ "int32_t", "rrectbindfuncversion", "1" ],
+                [ "int32_t", "pollduration", "120000" ],
+                [ "int32_t", "delaytimeoutduration", "2000" ],
+                [ "int32_t", "needdelayvideobase", "360" ],
+                [ "int32_t", "relayvideoreachbase", "360" ],
+                ["bool","isRenderLabel","true"],
+                ["bool","isRenderVideo","true"],
+				[ "bool", "isfilterNoVideo", "false" ],
+				[ "int32_t", "layout_version", "2" ]     				
+            ]
+        },
+        {
+            "type": "RChangeVideoNicknameState_t",
+            "members": [
+                [ "int32_t", "fontsize", "0" ],
+                [ "int32_t", "fontcolorr", "0" ],
+                [ "int32_t", "fontcolorg", "0" ],
+                [ "int32_t", "fontcolorb", "0" ],
+                [ "int32_t", "backgroundcolorr", "0" ],
+				[ "int32_t", "backgroundcolorg", "0" ],
+				[ "int32_t", "backgroundcolorb", "0" ],
+                [ "int32_t", "changecolor", "0" ],
+                [ "int32_t", "backgroundcolora", "0" ],
+                [ "float", "backgroundcoloral", "0" ]
+            ]
+        }
+    ]
+
+}

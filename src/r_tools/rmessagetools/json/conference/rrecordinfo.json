@@ -1,0 +1,21 @@
+{
+	"headers":[
+		{"header":"../result/rresult.h"}
+    ],
+    "structs": [
+        {
+            "type": "RRecInfo_t",
+            "members": [
+                [ "int32_t", "recstate", "0" ],
+                [ "string", "failreason", "0" ]
+            ]
+        },
+        {
+            "type": "RRecordState_t",
+            "members": [
+                [ "int32_t", "recstate", "0" ],
+                [ "RError_t", "error" ]
+            ]
+        }
+    ]
+}

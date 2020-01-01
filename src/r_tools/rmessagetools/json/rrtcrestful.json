@@ -1,0 +1,539 @@
+{
+    "structs": [
+        {
+            "type": "RRtcRestfulDoamin_t",
+            "members": [
+                [ "string", "addr", "" ],
+                [ "string", "version", "" ],
+                [ "string", "companyid", "" ],
+                [ "int32_t", "priority", "9999" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulResult_t",
+            "members": [
+                [ "string", "code", "" ],
+                [ "int32_t", "errorCode" ],
+                [ "bool", "isSuccess"],
+                [ "string", "des", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulDoamins_t",
+            "members": [
+                [ "string", "addr" ],
+                [ "string", "proxyaddr" ],
+                [ "string", "companyid", "" ],
+                [ "string", "version", "" ],
+                [ "int32_t", "isusedcompanyid", "0" ],
+		["string","corporationcode",""]
+            ]
+        },
+        {
+            "type": "RCheckVersion_t",
+            "members": [
+                [ "string", "versiondomain", "" ],
+                [ "string", "network", "" ],
+                [ "string", "company", "" ],
+                [ "string", "version", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulGetVersionReq_t",
+            "members": [
+                [ "string", "secretkey", "" ],
+                [ "string", "token", "" ],
+                [ "string", "companyid", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulGetVersionRsp_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "string", "data", "" ],
+                [ "string", "version", "" ],
+                [ "bool", "isusedcompanyid", "0" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulGetClientConfigReq_t",
+            "members": [
+                [ "string", "serveraddress", "" ],
+                [ "string", "clientversion", "" ],
+                [ "string", "clienttype", "" ],
+                [ "string", "clientmodel", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulGetClientConfigRsp_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "string", "isforce", "" ],
+                [ "string", "codedesc", "" ],
+                [ "string", "respcode", "" ],
+                [ "string", "lastupdatetime", "" ],
+                [ "string", "relativepath", "" ],
+                [ "string", "url", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulGetCertCodeReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "jsonp", "" ],
+                [ "string", "companyid", "" ],
+                [ "string", "corporationcode", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulGetCertCodeRsp_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulModifyUserReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "secretkey", "" ],
+                [ "string", "token", "" ],
+                [ "string", "phone", "" ],
+                [ "string", "email", "" ],
+                [ "string", "account", "" ],
+                [ "string", "nickname", "" ],
+                [ "string", "pwd", "" ],
+				[ "string", "oldpwd", "" ],
+                [ "string", "verifycode", "" ],
+                [ "string", "vc", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulModifyUserRsp_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "string", "token", "" ],
+                [ "string", "data", "" ],
+                [ "string", "phone", "" ],
+                [ "string", "emial", "" ],
+                [ "string", "nickname", "" ],
+                [ "string", "suid", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulResetPasswordReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "secretkey", "" ],
+                [ "string", "token", "" ],
+                [ "string", "vc", "" ],
+                [ "string", "verifycode", "" ],
+                [ "string", "pwd", "" ],
+                [ "string", "oldpwd", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulResetPasswordRsp_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulLoginReq_t",
+            "members": [
+                [ "string", "password", "" ],
+                [ "string", "account", "" ],
+                [ "string", "companyid", "" ],
+                [ "string", "appid", "" ],
+                [ "string", "secretkey", "" ],
+				[ "string", "certType", "" ],
+				[ "string", "signId", "" ],
+                [ "string", "type", "" ],
+                [ "string", "option_uuid", "" ],
+                [ "string", "option_macaddr", "" ],
+                [ "string", "option_cpuno", "" ],
+                [ "string", "option_diskno", "" ],
+                [ "string", "corporationcode", "" ],
+                [ "string", "std_certtype", "" ],
+                [ "string", "std_authmsg", "" ],
+                [ "string", "std_nonce", "" ],
+                [ "string", "std_realm", "" ],
+                [ "string", "std_method", "" ],
+                [ "string", "std_username", "" ],
+                [ "string", "std_uri", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulLoginRsp_t",
+            "members": [
+                [ "string", "token", "" ],
+                [ "string", "email", "" ],
+                [ "string", "nickname", "" ],
+                [ "string", "phone", "" ],
+                [ "int32_t", "suid", "0" ],
+                [ "string", "timestamp", "" ],
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "[string]", "stserver" ],
+                [ "string", "companyid" ],
+                [ "string", "account", "" ],
+                [ "string", "exclusiveConf", "" ],
+                [ "string", "password", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulDoaminsLoginReq_t",
+            "members": [
+                [ "RRtcRestfulLoginReq_t", "login" ],
+                [ "RRtcRestfulDoamins_t", "domains" ],
+                [ "bool", "isAsynchronous" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulDoaminsLoginRsp_t",
+            "members": [
+                [ "RRtcRestfulLoginRsp_t", "login" ],
+                [ "RRtcRestfulDoamins_t", "domains" ],
+                [ "string", "logindomain", "" ],
+                [ "string", "checkversionurl", "" ],
+                [ "string", "loginaccount", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulStartMeetingReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "secretkey", "" ],
+                [ "string", "token", "" ],
+                [ "string", "serviceid", "" ],
+                [ "string", "confid", "" ],
+                [ "string", "confpwd", "" ],
+                [ "string", "livepwd", "" ],
+                [ "string", "thirdconfid", "" ],
+                [ "string", "starttime", "" ],
+                [ "string", "endtime", "" ],
+                [ "int32_t", "conftype", "1" ],
+                [ "int32_t", "starttype", "3" ],
+                [ "string", "version3", "" ],
+                [ "string", "id3", "" ],
+                [ "string", "anonymous", "" ],
+                [ "string", "confname", "" ],
+                [ "string", "maxterm", "" ],
+                [ "string", "audioenable", "" ],
+                [ "string", "videoenable", "" ],
+                [ "string", "permanentenable", "" ],
+                [ "string", "ctrluserid", "" ],
+                [ "string", "ctrlpwd", "" ],
+                [ "string", "participants", "" ],
+                [ "string", "rooms", "" ],
+                [ "string", "micautoenable", "1" ],
+                [ "string", "cameraautoenable", "0" ],
+                [ "string", "encryptalg", "" ],
+                [ "string", "msgtype", "" ],
+                [ "string", "companyid", "" ],
+                [ "string", "usertype", "" ],
+                [ "string", "clientip", "" ],
+                [ "string", "serial", "" ],
+                [ "string", "calloption", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulStartMeetingRsp_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "string", "paastoken", "" ],
+                [ "string", "confid", "" ],
+                [ "string", "starttime", "" ],
+                [ "string", "endtime", "" ],
+                [ "string", "thirdconfid", "" ],
+                [ "string", "conftype", "" ],
+                [ "string", "confstarttype", "" ],
+                [ "string", "mcaddr", "" ],
+                [ "string", "relaymcaddr", "" ],
+                [ "string", "relaymcinfo", "" ],
+                [ "[string]", "relayserver" ],
+                [ "string", "timestamp", "" ],
+                [ "string", "tak", "" ],
+                [ "string", "oci", "" ],
+                [ "string", "paasuid", "" ],
+                [ "string", "paasnickname", "" ],
+                [ "string", "hasstarted", "" ],
+                [ "string", "videoenable", "" ],
+                [ "string", "audioenable", "" ],
+                [ "string", "micautoenable", "" ],
+                [ "string", "cameraautoenable", "" ],
+                [ "string", "encryptalg", "" ],
+                [ "string", "confpwd", "" ],
+                [ "string", "usertype", "" ],
+                [ "int32_t", "mediagroupid", "0" ],
+                [ "string", "playaddrprefix", "" ],
+                [ "string", "pulladdrprefix", "" ],
+                [ "[string]", "relaymcinfos" ],
+                [ "int32_t", "level", "1" ],
+                [ "[string]", "stserver" ],
+                [ "[string]", "relatedcompanys" ],
+                [ "string", "subject", "" ],
+                [ "string", "companyid", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulJoinMeetingReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "secretkey", "" ],
+                [ "string", "token", "" ],
+                [ "string", "serviceid", "" ],
+                [ "string", "confid", "" ],
+                [ "string", "confpwd", "" ],
+                [ "string", "livepwd", "" ],
+                [ "string", "thirdconfid", "" ],
+                [ "string", "starttime", "" ],
+                [ "string", "endtime", "" ],
+                [ "int32_t", "conftype", "1" ],
+                [ "int32_t", "starttype", "3" ],
+                [ "string", "version3", "" ],
+                [ "string", "id3", "" ],
+                [ "string", "anonymous", "" ],
+                [ "string", "confname", "" ],
+                [ "string", "maxterm", "" ],
+                [ "string", "audioenable", "" ],
+                [ "string", "videoenable", "" ],
+                [ "string", "permanentenable", "" ],
+                [ "string", "ctrluserid", "" ],
+                [ "string", "ctrlpwd", "" ],
+                [ "string", "participants", "" ],
+                [ "string", "rooms", "" ],
+                [ "string", "micautoenable", "1" ],
+                [ "string", "cameraautoenable", "0" ],
+                [ "string", "encryptalg", "" ],
+                [ "string", "msgtype", "" ],
+                [ "string", "companyid", "" ],
+                [ "string", "usertype", "" ],
+                [ "string", "clientip", "" ],
+                [ "string", "serial", "" ],
+                [ "string", "calloption", "" ],
+                [ "string", "domains", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulJoinMeetingRsp_t",
+            "members": [
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "string", "paastoken", "" ],
+                [ "string", "confid", "" ],
+                [ "string", "starttime", "" ],
+                [ "string", "endtime", "" ],
+                [ "string", "thirdconfid", "" ],
+                [ "string", "conftype", "" ],
+                [ "string", "confstarttype", "" ],
+                [ "string", "mcaddr", "" ],
+                [ "string", "relaymcaddr", "" ],
+                [ "string", "relaymcinfo", "" ],
+                [ "[string]", "relayserver" ],
+                [ "string", "timestamp", "" ],
+                [ "string", "tak", "" ],
+                [ "string", "oci", "" ],
+                [ "string", "paasuid", "" ],
+                [ "string", "paasnickname", "" ],
+                [ "string", "hasstarted", "" ],
+                [ "string", "videoenable", "" ],
+                [ "string", "audioenable", "" ],
+                [ "string", "micautoenable", "" ],
+                [ "string", "cameraautoenable", "" ],
+                [ "string", "encryptalg", "" ],
+                [ "string", "confpwd", "" ],
+                [ "string", "usertype", "" ],
+                [ "int32_t", "mediagroupid", "0" ],
+                [ "string", "playaddrprefix", "" ],
+                [ "string", "pulladdrprefix", "" ],
+                [ "[string]", "relaymcinfos" ],
+                [ "int32_t", "level", "1" ],
+                [ "[string]", "stserver" ],
+                [ "[string]", "relatedcompanys" ],
+                [ "string", "subject", "" ],
+                [ "string", "conferenceName", "" ],
+				[ "string", "confCategory", "" ],
+                [ "string", "companyid", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulMeetinghasPwsReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "paastoken", "" ],
+                [ "string", "confid", "" ],
+                [ "string", "thirdconfid", "" ],
+                [ "string", "companyid", "" ],
+                [ "string", "jsonp", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulMeetinghasPwsRsp_t",
+            "members": [
+                [ "string", "paastoken", "" ],
+                [ "string", "confid", "" ],
+                [ "RRtcRestfulResult_t", "result" ],
+                [ "int32_t", "hasPwd", "0" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulInviteOnLineReq_t",
+            "members": [
+                [ "string", "appid", "" ],
+                [ "string", "token", "" ],
+                [ "string", "confId", "" ],
+                [ "string", "confPws", "" ],
+                [ "string", "secretKey", "" ],
+                [ "string", "terName", "" ],
+                [ "string", "terId", "" ],
+                [ "string", "participants", "" ],
+                [ "string", "rooms", "" ],
+                [ "string", "msgType", "" ],
+                [ "string", "companyId", "" ],
+                [ "string", "callOption", "" ],
+                [ "string", "jsonp", "" ]
+            ]
+        },
+		{
+            "type": "RRtcRestfulInviteReq_t",
+            "members": [
+                [ "RRtcRestfulInviteOnLineReq_t", "invite_t"],
+                [ "string", "sendMsg", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulInviteOnLineRsp_t",
+            "members": [
+               [ "RRtcRestfulResult_t", "result" ]
+            ]
+        },
+		{
+            "type": "RRtcUpdateConferenceInfoReq_t",
+            "members": [
+                 [ "string", "secretKey","" ],
+                [ "string", "token", "" ],
+                [ "string", "appId", "" ],
+                [ "string", "serviceId" ],
+                [ "string", "confId" ],
+                [ "int32_t", "confPwd" ],
+                [ "string", "livePwd" ],
+                [ "bool", "isstartvideo", "true" ],
+                [ "bool", "isstartaudio", "true" ],
+                [ "string", "thirdConfId" ],
+                [ "string", "startTime" ],
+                [ "string", "endTime" ],
+                [ "string", "subject" ],
+                [ "int32_t", "confType" ],
+                [ "int32_t", "startType" ],
+                [ "string", "anonymous" ],
+				[ "string", "confName", "" ],
+				[ "string", "maxTerm", "" ],
+				[ "string", "audioEnable", "" ],
+				[ "string", "videoEnable", "" ],
+				[ "string", "permanentEnable", "" ],
+				[ "string", "ctrlUserId", "" ],
+				[ "string", "ctrlPwd", "" ],
+				[ "string", "participants", "" ],
+				[ "string", "rooms", "" ],
+				[ "string", "micAutoEnable", "" ],
+				[ "string", "camaraAutoEnable", "" ],
+                [ "string", "encryptAlg", "" ],
+				[ "string", "msgType", "" ],
+				[ "string", "autoRec", "" ],
+				[ "string", "confStatus", "" ],
+				[ "int32_t", "confCategory" ],
+                [ "string", "jsonp", "" ]
+            ]
+        },
+		{
+            "type": "RRtcUpdateConferenceInfoRsp_t",
+            "members": [
+			[ "RRtcRestfulResult_t", "result" ],
+                [ "bool", "isSuccess"],
+                [ "int32_t", "errorCode" ],
+				[ "string", "code", "" ],
+				[ "string", "excConf", "" ],
+                [ "string", "token", "" ]
+            ]
+        },
+        {
+            "type": "RRtcRestfulMeetingPaasUIInfo_t",
+            "members": [
+                [ "string", "addr", "" ],
+                [ "string", "proxyadd", "" ],
+                [ "string", "addr_invite_url", "" ],
+                [ "string", "proxyaddr_invite_url", "" ],
+                [ "string", "confid", "" ],
+                [ "string", "fullconfid", "" ],
+                [ "string", "pwd", "" ],
+                [ "string", "confcompanyid", "" ],
+                [ "bool", "isequallogincompanyid" ],
+                [ "int32_t", "confdomainversion", "0" ],
+                [ "string", "fullinviteinfo", "" ]
+            ]
+		},
+        {
+            "type": "RRtcConfProperty_t",
+            "members": [	
+				[ "string", "suid", "" ],
+				[ "string", "nickname", "" ],
+				[ "string", "chairmanName", "" ],	
+				[ "string", "confId", "" ],
+				[ "string", "confName", "" ],
+				[ "string", "confPwd" ],
+				[ "string", "thirdConfId" ],
+				[ "string", "confType" ],
+				[ "string", "startTime" ],
+                [ "string", "endTime" ],
+				[ "string", "startType" ],
+				[ "string", "anonymous" ],
+				[ "string", "maxTerm", "" ],
+				[ "string", "audioEnable", "" ],
+				[ "string", "videoEnable", "" ],
+				[ "string", "permanentEnable", "" ],
+				[ "string", "ctrlUserId", "" ],
+				[ "string", "ctrlPwd", "" ],
+				[ "string", "micAutoEnable", "" ],
+				[ "string", "camaraAutoEnable", "" ],
+				[ "string", "encryptAlg", "" ],
+				[ "string", "autoRec", "" ],
+				[ "string", "confCategory" ],
+				[ "string", "confStatus", "1"],
+				[ "string", "callwaitState", "1"]
+            ]
+        },
+        {
+            "type": "RRtcConfInfo_t",
+            "members": [
+				[ "RRtcConfProperty_t", "confProperty" ],
+				[ "string", "livePwd", "" ],
+				[ "string", "participants", "" ],
+				[ "string", "rooms", "" ],
+				[ "string", "msgType", ""]
+            ]
+        },
+        {
+            "type": "RRtcConfPersonalInfo_t",
+            "members": [
+				[ "RRtcConfProperty_t", "confProperty" ],
+				[ "string", "hasStarted",""],
+				[ "string", "inviteCode", "" ]
+            ]
+        },
+        {
+            "type": "RRtcConfPersonalInfoRsp_t",
+            "members": [
+				[ "RRtcRestfulResult_t", "result" ],
+				[ "string", "token", "" ],
+				[ "[RRtcConfPersonalInfo_t]", "confPersonalList" ]
+            ]
+        },
+		{
+            "type": "RRestfulRequestHead_t",
+            "members": [
+                ["string", "appId", ""],
+                ["string", "token", ""],
+				[ "string", "secretKey", "" ],
+				[ "string", "serviceId", "" ]
+            ]
+        }
+    ]
+}

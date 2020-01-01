@@ -1,0 +1,26 @@
+{
+    "structs": [
+        {
+            "type": "RShareInMeeting_t",
+            "members": [
+                [ "int32_t", "projectID", "0" ],
+                [ "int32_t", "projectState", "0" ]
+            ]
+        },
+        {
+            "type": "RConference_t",
+            "members": [
+                [ "int32_t", "confmode", "-1" ],
+                [ "string", "confid", " "],
+				[ "string", "subject", " "],
+				[ "string", "confname", " "],
+                [ "int32_t", "chairmanterid" , "-1"],
+				[ "int32_t", "chairmansuid" , "-1"],
+				[ "int32_t", "terid", "-1" ],
+				[ "bool", "isforcemute", "0" ],
+				[ "int32_t", "recstate", "0" ],
+                [ "RShareInMeeting_t", "share" ]
+            ]
+        }
+    ]
+}
