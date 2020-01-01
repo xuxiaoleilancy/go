@@ -32,8 +32,8 @@ function TaskCtrl($scope, $http) {
   };
 
   $scope.toggleDone = function(task) {
-    data = {ID: task.ID, Title: task.Title, Done: !task.Done}
-    $http.put('/todo/task/'+task.ID, data).
+    data = {ID: task.Id, Title: task.Title, Done: !task.Done,Des:task.Des,Bgntime:task.Bgntime,Endtime:task.Endtime}
+    $http.put('/todo/task/'+task.Id, data).
       error(logError).
       success(function() { task.Done = !task.Done });
   };

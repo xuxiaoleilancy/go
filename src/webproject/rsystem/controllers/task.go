@@ -2,8 +2,9 @@ package controllers
 
 import (
 	"encoding/json"
-	"strconv"
 
+	"strconv"
+	"time"
 	"webproject/rsystem/models"
 
 	"github.com/astaxie/beego"
@@ -21,9 +22,17 @@ type TaskController struct {
 //          {"ID": 2, "Title": "Buy bread", "Done": true}
 //        ]}
 func (this *TaskController) ListTasks() {
-	res := struct{ Tasks []*models.Task }{models.DefaultTaskList.All()}
+
+	maps := models.DefaultTaskList.SelectAll()
+	//	var tasks []models.Task
+	//	for _, task := range maps {
+	//		tasks = append(tasks, task)
+	//	}
+
+	res := struct{ Tasks []*models.Task }{maps}
 	this.Data["json"] = res
 	this.ServeJSON()
+
 }
 
 // Examples:
@@ -40,13 +49,8 @@ func (this *TaskController) NewTask() {
 		this.Ctx.Output.Body([]byte("empty title"))
 		return
 	}
-	t, err := models.NewTask(req.Title)
-	if err != nil {
-		this.Ctx.Output.SetStatus(400)
-		this.Ctx.Output.Body([]byte(err.Error()))
-		return
-	}
-	models.DefaultTaskList.Save(t)
+	t := models.Task{Title: req.Title, Bgntime: time.Now(), Endtime: time.Now().Add(time.Duration(time.Hour * 24))}
+	models.DefaultTaskList.Insert(&t)
 }
 
 // Examples:
@@ -60,9 +64,9 @@ func (this *TaskController) GetTask() {
 	id := this.Ctx.Input.Param(":id")
 	beego.Info("Task is ", id)
 	intid, _ := strconv.ParseInt(id, 10, 64)
-	t, ok := models.DefaultTaskList.Find(intid)
-	beego.Info("Found", ok)
-	if !ok {
+	t, err := models.DefaultTaskList.Find(intid)
+	beego.Info("Found", err)
+	if err != nil {
 		this.Ctx.Output.SetStatus(404)
 		this.Ctx.Output.Body([]byte("task not found"))
 		return
@@ -88,15 +92,10 @@ func (this *TaskController) UpdateTask() {
 		this.Ctx.Output.Body([]byte(err.Error()))
 		return
 	}
-	if t.ID != intid {
+	if t.Id != intid {
 		this.Ctx.Output.SetStatus(400)
 		this.Ctx.Output.Body([]byte("inconsistent task IDs"))
 		return
 	}
-	if _, ok := models.DefaultTaskList.Find(intid); !ok {
-		this.Ctx.Output.SetStatus(400)
-		this.Ctx.Output.Body([]byte("task not found"))
-		return
-	}
-	models.DefaultTaskList.Save(&t)
+	models.DefaultTaskList.Update(t)
 }
