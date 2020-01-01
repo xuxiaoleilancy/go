@@ -1,0 +1,90 @@
+<html>
+    <head>
+    <meta  http-equiv="Contennt-Type" content="text/html" charset="utf-8">
+        <title>RTCVideo调试助手</title>
+        <link href="static/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="static/css/bootstrap.css" media="screen">
+        <link href="static/css/animate.css" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/eden.css" media="screen">
+    <style>  
+   
+  </style>
+    </head>
+    <body class="main">
+        <h1 class="SRTitle">RTCVideo 内存数据查询</h1>
+        <div  class="SRLogDiv">
+            <p>
+                <input type="text" id="inputText" class="SRInputMessage" onkeydown="if(event.keyCode==13)sendMessage();"/>
+            </p>
+            <div class="bs-component" >
+                <p>
+                    <button class="SRButton" onClick="sendMessage();">SendText</button>
+                    <a class="large button green" onClick="clearMsg();" >clear Msg</a>
+                    <input type="checkbox" id="displayRSelectVideoBusiness" >displayRSelectVideoBusiness</input>
+                </p>
+            </div>
+            <textarea id="debugTextArea" class="SRDebugArea"></textarea>
+        </div>
+        <div class="control" >
+            <label for="">IP:</label><input type="text" class="SRInput"  value="" name="ip" id="ip"></label>
+            <label for="">mode:</label><input type="text" class="SRInput"  value="mode" name="modeinput" id="modeinput"><br/><br/>
+            <label for="">终端id:</label><input type="text" class="SRNumberInput"  value="0" name="terinput" id="terinput"></label>
+        </div>
+        <div class="control" id="light">
+            <ul>
+            <li>
+            <a class="super button green" onClick="initWebSocket();" >连接</a>
+            <a class="super button red" onClick="stopWebSocket();" >断开</a>
+            <a class="large button blue"  onClick="checkSocket();" >网络状态</a>
+            </li>
+
+            <li> 
+            <a class="large button blue" onclick="showLocalPreview();">本地预览</a>
+			<a class="large button blue" onClick="getscreens();" >屏幕信息</a>
+            <a class="large button blue" onClick="terminals();" >终端</a>
+            <a class="large button blue" onClick="moderects();" >布局区域</a>
+            <a class="large button blue" onClick="rectterminals();" >区域终端绑定</a>
+            <a class="large button blue" onClick="renderchannels();" >渲染通道</a>
+            </li>
+			<li> 
+			<a class="large button blue" onClick="getcurrentlayout('1');" >当前本地布局</a>
+			<a class="large button blue" onClick="getcurrentlayout('2');" >当前主持人布局</a>
+			<a class="large button blue" onClick="getcurrentlayout('3');" >当前网关布局</a>
+            </li>
+            </ul>
+        </div>
+        <div class="control" id="light">
+            <ul>
+            <li>
+			<a class="super button blue" onClick="changconfmode(0);" >自由</a>
+			<a class="super button blue" onClick="changconfmode(1);" >主席</a>
+            <a class="super button blue" onClick="conferenceIndex();" >Index</a>
+            <a class="super button blue" onClick="conferenceState();" >会议参数</a>
+            <a class="super button blue" onClick="conferenceActivity();" >会议进程</a><br/><br/>
+
+            <label for="">布局分屏:</label><input type="text" class="SRNumberInput"  value="5" name="layoutcountinput" id="layoutcountinput"></label>
+            <a class="super button blue" onClick="setlayout();" >指定</a>
+            <a class="super button blue" onClick="setlayout_auto();" >自动</a>
+            <a class="super button blue" onClick="setlayout_lecture();" >演讲者</a>
+			<a class="super button blue" onClick="setMasterlayout();" >同步</a>
+            </li>
+            </ul>
+        </div>
+        <div class="control" id="flags">
+            <label for="">0-数据共享<br/>1-焦点视频<br/>2-语音激励<br/>3-本地视频<br/>4-固定视频<br/>5-轮询</label>
+        </div>
+        <div class="control" id="light">
+            <ul>
+            <li>
+            <a class="super button blue" onClick="selecteds();" >实际选流</a>
+            <a class="super button blue" onClick="modeselect();" >期望选流</a>
+            </li>
+            </ul>
+        </div>
+        <div id="jsonformatresult" class="JsonResult"></div>
+        <script src="static/js/jquery-2.js"></script>
+        <script src="static/js/jquery_plugin.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="static/js/websocket.js"></script>
+    </body>
+</html>

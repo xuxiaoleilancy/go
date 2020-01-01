@@ -22,7 +22,7 @@
 
     header,
     footer {
-      width: 960px;
+      width: auto;
       margin-left: auto;
       margin-right: auto;
     }
@@ -88,6 +88,11 @@
 <header>
     <h2 class="logo">
       <a href="http://{{<.Website>}}:8080/todo">TODO</a> </p></h2>
+  </header>
+
+<header>
+    <h2 class="logo">
+      <a href="http://{{<.Website>}}:8080/rtcvideo">RTCVideo</a> </p></h2>
   </header>
 <div class="author">
       
