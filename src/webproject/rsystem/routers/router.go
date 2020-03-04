@@ -8,9 +8,15 @@ import (
 
 func init() {
 	beego.Router("/", &controllers.MainController{})
-	beego.Router("/todo", &controllers.Todo{})
+	beego.Router("/todo/", &controllers.TodoController{})
 	beego.Router("/todo/task/", &controllers.TaskController{}, "get:ListTasks;post:NewTask")
 	beego.Router("/todo/task/:id:int", &controllers.TaskController{}, "get:GetTask;put:UpdateTask")
 
 	beego.Router("/rtcvideo", &controllers.RTCVideo{})
+
+	beego.Router("/rtest", &controllers.RTestController{})
+	beego.Router("/rtest/cmds", &controllers.CmdController{})
+
+	beego.Router("/rautomatic", &controllers.RAutomaticCenter{})
+
 }

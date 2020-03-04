@@ -4,11 +4,11 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type Todo struct {
+type TodoController struct {
 	beego.Controller
 }
 
-func (this *Todo) Get() {
+func (this *TodoController) Get() {
 	this.TplName = "todo.html"
 	this.Render()
 }

@@ -16,7 +16,7 @@ type TaskController struct {
 
 // Example:
 //
-//   req: GET /task/
+//   req: GET /todo/task/
 //   res: 200 {"Tasks": [
 //          {"ID": 1, "Title": "Learn Go", "Done": false},
 //          {"ID": 2, "Title": "Buy bread", "Done": true}
@@ -24,15 +24,12 @@ type TaskController struct {
 func (this *TaskController) ListTasks() {
 
 	maps := models.DefaultTaskList.SelectAll()
-	//	var tasks []models.Task
-	//	for _, task := range maps {
-	//		tasks = append(tasks, task)
-	//	}
 
 	res := struct{ Tasks []*models.Task }{maps}
 	this.Data["json"] = res
 	this.ServeJSON()
 
+	defer this.Render()
 }
 
 // Examples:
@@ -43,6 +40,7 @@ func (this *TaskController) ListTasks() {
 //   req: POST /task/ {"Title": "Buy bread"}
 //   res: 200
 func (this *TaskController) NewTask() {
+
 	req := struct{ Title string }{}
 	if err := json.Unmarshal(this.Ctx.Input.RequestBody, &req); err != nil {
 		this.Ctx.Output.SetStatus(400)
@@ -51,6 +49,8 @@ func (this *TaskController) NewTask() {
 	}
 	t := models.Task{Title: req.Title, Bgntime: time.Now(), Endtime: time.Now().Add(time.Duration(time.Hour * 24))}
 	models.DefaultTaskList.Insert(&t)
+
+	this.Render()
 }
 
 // Examples:
@@ -65,14 +65,19 @@ func (this *TaskController) GetTask() {
 	beego.Info("Task is ", id)
 	intid, _ := strconv.ParseInt(id, 10, 64)
 	t, err := models.DefaultTaskList.Find(intid)
-	beego.Info("Found", err)
+
+	defer this.Render()
 	if err != nil {
+
+		beego.Info("Found", err)
 		this.Ctx.Output.SetStatus(404)
 		this.Ctx.Output.Body([]byte("task not found"))
-		return
+
+	} else {
+
+		this.Data["json"] = t
+		this.ServeJSON()
 	}
-	this.Data["json"] = t
-	this.ServeJSON()
 }
 
 // Example:
@@ -87,6 +92,7 @@ func (this *TaskController) UpdateTask() {
 	beego.Info("Task is ", id)
 	intid, _ := strconv.ParseInt(id, 10, 64)
 	var t models.Task
+	defer this.Render()
 	if err := json.Unmarshal(this.Ctx.Input.RequestBody, &t); err != nil {
 		this.Ctx.Output.SetStatus(400)
 		this.Ctx.Output.Body([]byte(err.Error()))

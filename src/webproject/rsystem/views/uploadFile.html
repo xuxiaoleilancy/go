@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>定制项目信息定制</title>
+    <style>
+        label{padding:5px 10px; display:inline-block;}
+        input{border:1px solid #ccc; outline:none;}
+        button{border:1px solid #ccc; border-radius:2px; background:#eee;}
+        .previewImg{position:absolute; background:#fff;}
+        @media screen and (max-width: 680px){
+            input{display:block;}
+            button{margin-top:5px;}
+        }
+    </style>
+</head>
+<body>
+<!-- input上data-type指定文件类型(多类型以/隔开、jpg后缀图片类型为jpeg)，data-size指定文件大小 -->
+<label>web页面网站图标(.ico、大小100k)：<input type="file" id="file0" data-type="ico" data-size="102400" onmouseover="fileOnmouseover(this)" onmouseout="fileOnmouseout(this)" onchange="fileOnchange(this)"><button id="btn0" onclick="fileSubmit(this)" disabled>上传</button></label><br>
+<label>web后台管理logo(.png/.jpg、大小100k)：<input type="file" id="file1" data-type="png/jpeg" data-size="102400" onmouseover="fileOnmouseover(this)" onmouseout="fileOnmouseout(this)" onchange="fileOnchange(this)"><button id="btn1" onclick="fileSubmit(this)" disabled>上传</button></label><br>
+<label>web后台管理登录页（手机端）logo(.png、大小50k)：<input type="file" id="file2" data-type="png" data-size="51200" onmouseover="fileOnmouseover(this)" onmouseout="fileOnmouseout(this)" onchange="fileOnchange(this)"><button id="btn2" onclick="fileSubmit(this)" disabled>上传</button></label><br>
+<label>web下载页logo(.png)：<input type="file" id="file3"><button id="btn3" disabled>上传</button></label><br>
+<label>web注册页（PC端）logo(.png)：<input type="file" id="file4"><button id="btn4" disabled>上传</button></label><br>
+<label>web注册页（手机端）logo(.png)：<input type="file" id="file5"><button id="btn5" disabled>上传</button></label><br>
+<label>web后台管理logo(.png)：<input type="file" id="file6"><button id="btn6" disabled>上传</button></label><br>
+<label>web直播页视频加载logo(.swf)：<input type="file" id="file7"><button id="btn7" disabled>上传</button></label><br>
+<label>手机客户端图标(.)：<input type="file" id="file8"><button id="btn8" disabled>上传</button></label><br>
+<label>pad客户端图标(.)：<input type="file" id="file9"><button id="btn9" disabled>上传</button></label><br>
+<label>pad界面logo(.png)：<input type="file" id="file10"><button id="btn10" disabled>上传</button></label><br>
+<label>pc客户端图标(.)：<input type="file" id="file11"><button id="btn11" disabled>上传</button></label><br>
+<label>pc客户端界面logo(.png)：<input type="file" id="file12"><button id="btn12" disabled>上传</button></label><br>
+
+<script>
+    //鼠标放在上传空间上，如有有效图片文件显示预览图
+    // document.getElementById("file0").onmouseover=function(){
+    //     if(this.files.length>0) {
+    //         var file = this.files[0];
+    //         var type = file.type;
+    //         var size = file.size;
+    //         var name = file.name;
+    //         var path=this.value;
+    //         var imgSrc="img/registerLogoMb.png";//预览图片地址,
+    //         if (type.match(/image\//)) {
+    //             var previewDiv=document.createElement("div");
+    //             previewDiv.setAttribute("class","previewImg");
+    //             previewDiv.setAttribute("id","previewImg");
+    //             previewDiv.setAttribute("style","top:"+(this.offsetTop+30)+"px;left:"+this.offsetLeft+"px;")
+    //             var previewImg=document.createElement("img");
+    //             previewImg.setAttribute("src",imgSrc);
+    //             previewDiv.appendChild(previewImg);
+    //             this.parentNode.appendChild(previewDiv);
+    //         }
+    //     }
+    // }
+
+    function fileOnmouseover(e){
+        if(e.files.length>0) {
+            var file = e.files[0];
+            var type = file.type;
+            var size = file.size;
+            var name = file.name;
+            var path=e.value;
+            var imgSrc="";
+
+            if (type.match(/image\//)) {
+                var reader = new  FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function (ev) {
+                    imgSrc=ev.target.result;
+                    var previewDiv=document.createElement("div");
+                    previewDiv.setAttribute("class","previewImg");
+                    previewDiv.setAttribute("id","previewImg");
+                    previewDiv.setAttribute("style","top:"+(e.offsetTop+30)+"px;left:"+e.offsetLeft+"px;")
+                    var previewImg=document.createElement("img");
+                    previewImg.setAttribute("src",imgSrc);
+                    previewDiv.appendChild(previewImg);
+                    e.parentNode.appendChild(previewDiv);
+                }
+
+            }
+        }
+    }
+
+    function fileOnmouseout(e){
+        for(var i=0; i<e.parentNode.childNodes.length;i++){
+            if(e.parentNode.childNodes[i].nodeName=="DIV"){
+                e.parentNode.removeChild(e.parentNode.childNodes[i]);
+            }
+        }
+    }
+
+    function fileOnchange(e){
+        if(e.files.length>0) {
+            var file = e.files[0];
+            var type = file.type;
+            var size = file.size;
+            var name = file.name;
+            var fileType = e.getAttribute("data-type");
+            var fileTypes=fileType.split("/");
+            var fileTypeBool=false;
+            for(var f=0; f<fileTypes.length;f++){
+                if(type.indexOf(fileTypes[f])!=-1){fileTypeBool=true; break;}
+            }
+            var fileSize = e.getAttribute("data-size");
+            if (!fileTypeBool) {
+                e.nextSibling.disabled = true;
+                alert("格式不对，请重新选择");
+                return;
+            }
+            if (size > fileSize) {
+                e.nextSibling.disabled = true;
+                alert("文件太大，请更换小点的文件");
+                return;
+            }
+            //文件格式/大小符合要求，上传按钮可点
+            e.nextSibling.disabled = false;
+        }
+    }
+
+    function fileSubmit(e){
+        console.log("开始上传");
+        e.disabled=true;
+
+        //文件提交到服务器。超时或出错后需把button的disabled设置为true；
+
+    }
+</script>
+</body>
+</html>
