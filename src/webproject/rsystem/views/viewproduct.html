@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app>
+
+<head>
+  <title>产品视图</title>
+  <script src='/static/js/angular.min.js'></script>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<link rel="shortcut icon" href="/static/img/R.png" type="image/x-icon" />
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+  <script src='/static/js/viewproduct.js'></script>
+  <link rel='stylesheet' href='/static/css/viewproduct.css'>
+</head>
+
+<body>
+<div class='container' ng-controller='ViewProductCtrl'>
+  <h1 class='charcoal rounded-box'>产品视图</h1>
+
+  <h2>产品视图列表</h2>
+
+  <ul class='grey rounded-box'>
+    <li ng-repeat='p in ViewProducts' >{{p}}
+    </li>
+  </ul>
+
+  <img class='spinner' src='/static/img/spinner.gif' alt='Loading' ng-class='{working: working}'/>
+</div>
+</body>
+</html>

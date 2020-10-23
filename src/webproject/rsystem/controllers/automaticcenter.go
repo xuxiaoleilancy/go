@@ -9,6 +9,6 @@ type RAutomaticCenter struct {
 }
 
 func (this *RAutomaticCenter) Get() {
-	this.TplName = "uploadFile.html"
+	this.TplName = "viewproduct.html"
 	this.Render()
 }

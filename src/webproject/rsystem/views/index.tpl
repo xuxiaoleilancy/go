@@ -77,16 +77,14 @@
   <header>
     <h1 class="logo">欢迎来到RWorld</h1>
     <div class="description">
-	
-	《山海经·北山经》：“又北二百里，曰 丹熏之山 ……有兽焉，其状如鼠，而菟首麋身，其音如獋犬，以其尾飞，名曰耳鼠，食之不，又可以御百毒。”<br /><br />
-	
-      我是帮助您进行软件测试、部门沟通、技术文档发布的一系列工具的集合.<br /><br />
 	我的英文名字叫做“RWorld",中文的意思就是“锐世界”.<br /><br />
-	我诞生于2020年1月1日，所以我还有一个非常正式的中文名字“耿子书”。寓意着我希望在庚子鼠年的第一天(也就是2020年的2月4号)和大家见面。<br /><br />
-	(*￣︶￣) 敬请期待</p>
-	
+      我是帮助您进行软件测试、部门沟通、技术文档发布的一系列工具的集合.<br /><br />
 	
     </div>
+  </header>
+  <header>
+    <h2 class="logo">
+      <a href="http://{{<.Website>}}/rautomatic">RAutomatic</a> </p></h2>
   </header>
 <header>
     <h2 class="logo">
@@ -107,10 +105,7 @@
     <h2 class="logo">
       <a href="http://{{<.Website>}}/rdoc">RDoc</a> </p></h2>
   </header>
-<header>
-    <h2 class="logo">
-      <a href="http://{{<.Website>}}/rautomatic">RAutomatic</a> </p></h2>
-  </header>
+
 <div class="author">
       
     </div>
